@@ -1,0 +1,18 @@
+{
+  "name": "achievable",
+  "version": "0.0.0",
+  "homepage": "https://github.com/corporealshift/achievable",
+  "authors": [
+    "Kyle Diedrick <corporealshift@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ]
+}
