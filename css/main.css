@@ -62,3 +62,51 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
+
+/* line 5, ../scss/header.scss */
+body {
+  background: #fdfdfd;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 10, ../scss/header.scss */
+.header-wrapper {
+  position: fixed;
+  width: 100%;
+  background: #aa3311;
+  color: white;
+}
+
+/* line 17, ../scss/header.scss */
+.header {
+  height: 3rem;
+  line-height: 3rem;
+  margin: 0 1rem;
+}
+/* line 22, ../scss/header.scss */
+.header .total-points {
+  margin-right: 3rem;
+  font-size: 1.3rem;
+}
+/* line 27, ../scss/header.scss */
+.header input[type=text] {
+  line-height: 1.6rem;
+  width: 95%;
+  padding: 0 0.5rem;
+}
+/* line 33, ../scss/header.scss */
+.header #quick-create {
+  width: 33%;
+}
+/* line 37, ../scss/header.scss */
+.header #search {
+  width: 25%;
+}
+/* line 41, ../scss/header.scss */
+.header .total-points, .header #quick-create {
+  float: left;
+}
+/* line 45, ../scss/header.scss */
+.header .configuration, .header #search {
+  float: right;
+}
