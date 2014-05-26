@@ -63,50 +63,91 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 5, ../scss/header.scss */
+/* line 7, ../scss/global.scss */
 body {
   background: #fdfdfd;
+  color: #020202;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 10, ../scss/header.scss */
+/* line 13, ../scss/global.scss */
+a {
+  text-decoration: none;
+  color: #020202;
+}
+/* line 17, ../scss/global.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 22, ../scss/global.scss */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 28, ../scss/global.scss */
+.right {
+  float: right;
+}
+
+/* line 32, ../scss/global.scss */
+.left {
+  float: left;
+}
+
+/* line 1, ../scss/header.scss */
 .header-wrapper {
   position: fixed;
   width: 100%;
   background: #aa3311;
-  color: white;
+  color: #dedede;
 }
 
-/* line 17, ../scss/header.scss */
+/* line 8, ../scss/header.scss */
 .header {
   height: 3rem;
   line-height: 3rem;
   margin: 0 1rem;
 }
-/* line 22, ../scss/header.scss */
+/* line 13, ../scss/header.scss */
 .header .total-points {
   margin-right: 3rem;
   font-size: 1.3rem;
 }
-/* line 27, ../scss/header.scss */
+/* line 18, ../scss/header.scss */
 .header input[type=text] {
-  line-height: 1.6rem;
+  line-height: 1.8rem;
   width: 95%;
   padding: 0 0.5rem;
+  margin-top: 0.6rem;
+  border: none;
+  display: block;
 }
-/* line 33, ../scss/header.scss */
+/* line 27, ../scss/header.scss */
 .header #quick-create {
   width: 33%;
 }
-/* line 37, ../scss/header.scss */
+/* line 31, ../scss/header.scss */
 .header #search {
   width: 25%;
 }
-/* line 41, ../scss/header.scss */
-.header .total-points, .header #quick-create {
-  float: left;
+/* line 35, ../scss/header.scss */
+.header .configuration {
+  margin-left: 3rem;
 }
-/* line 45, ../scss/header.scss */
-.header .configuration, .header #search {
-  float: right;
+/* line 38, ../scss/header.scss */
+.header .configuration a {
+  color: #dedede;
+  line-height: 3rem;
+  padding: 0 1rem;
+  display: inline-block;
+}
+/* line 44, ../scss/header.scss */
+.header .configuration a:hover {
+  text-decoration: none;
+  color: white;
+  background: rgba(0, 0, 0, 0.2);
+  transition: 0.15s all linear;
 }

@@ -1,12 +1,3 @@
-$headers_and_btns: #aa3311;
-$header_and_btn_text: white;
-$background: #fdfdfd;
-
-body {
-    background: $background;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 .header-wrapper {
     position: fixed;
     width: 100%;
@@ -25,9 +16,12 @@ body {
     }
 
     input[type=text] {
-        line-height: 1.6rem;
+        line-height: 1.8rem;
         width: 95%;
         padding: 0 0.5rem;
+        margin-top: 0.6rem;
+        border: none;
+        display: block;
     }
 
     #quick-create {
@@ -38,11 +32,21 @@ body {
         width: 25%;
     }
 
-    .total-points, #quick-create {
-        float: left;
-    }
+    .configuration {
+        margin-left: 3rem;
 
-    .configuration, #search {
-        float: right;
+        a {
+            color: $header_and_btn_text;
+            line-height: 3rem;
+            padding: 0 1rem;
+            display: inline-block;
+
+            &:hover {
+                text-decoration: none;
+                color: $header_and_btn_text_hover;
+                background: rgba(0, 0, 0, 0.2);
+                transition: 0.15s all linear;
+            }
+        }
     }
 }

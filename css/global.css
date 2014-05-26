@@ -1,0 +1,33 @@
+/* line 7, ../scss/global.scss */
+body {
+  background: #fdfdfd;
+  color: #020202;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 13, ../scss/global.scss */
+a {
+  text-decoration: none;
+  color: #020202;
+}
+/* line 17, ../scss/global.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 22, ../scss/global.scss */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 28, ../scss/global.scss */
+.right {
+  float: right;
+}
+
+/* line 32, ../scss/global.scss */
+.left {
+  float: left;
+}
