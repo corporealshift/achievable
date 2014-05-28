@@ -1,8 +1,11 @@
 $headers_and_btns: #aa3311;
 $header_and_btn_text: #dedede;
 $header_and_btn_text_hover: white;
+$border_color: #999;
+$highlight_color: #ddf5f8;
 $background: #fdfdfd;
 $text_color: #020202;
+$light_text: #777;
 
 body {
     background: $background;
@@ -31,4 +34,8 @@ a {
 
 .left {
     float: left;
+}
+
+.hidden {
+    display: none;
 }

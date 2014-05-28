@@ -26,10 +26,12 @@
 
     #quick-create {
         width: 33%;
+        position: relative;
     }
 
     #search {
         width: 25%;
+        position: relative;
     }
 
     .configuration {
@@ -46,6 +48,36 @@
                 color: $header_and_btn_text_hover;
                 background: rgba(0, 0, 0, 0.2);
                 transition: 0.15s all linear;
+            }
+        }
+    }
+
+    .options {
+        position: absolute;
+        border: 1px solid $border_color;
+        line-height: 2rem;
+        color: $text_color;
+        background: $background;
+        border-top: none;
+        width: 98%;
+
+        a {
+            color: $light_text;
+            display: block;
+            padding: 0 1rem;
+            &:hover {
+                transition: 0.15s all linear;
+                background: $highlight_color;
+                text-decoration: none;
+            }
+        }
+
+        .user-value {
+            color: $text_color;
+            padding-left: 0.4rem;
+
+            &:hover {
+                text-decoration: underline;
             }
         }
     }
