@@ -20,7 +20,10 @@ $(function() {
       return dropdown.addClass('hidden');
     }
   });
-  return $('#quick-create').on('submit', function(e) {
+  $('#quick-create').on('submit', function(e) {
     return e.preventDefault();
+  });
+  return $('body').on('click', function(e) {
+    return $('#quick-create .options').addClass('hidden');
   });
 });

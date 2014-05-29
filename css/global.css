@@ -1,38 +1,54 @@
-/* line 10, ../scss/global.scss */
+/* line 11, ../scss/global.scss */
 body {
   background: #fdfdfd;
   color: #020202;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: lighter;
 }
 
-/* line 16, ../scss/global.scss */
+/* line 18, ../scss/global.scss */
+input, textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+}
+
+/* line 23, ../scss/global.scss */
 a {
   text-decoration: none;
   color: #020202;
 }
-/* line 20, ../scss/global.scss */
+/* line 27, ../scss/global.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 25, ../scss/global.scss */
+/* line 32, ../scss/global.scss */
 .group:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 31, ../scss/global.scss */
+/* line 38, ../scss/global.scss */
 .right {
   float: right;
 }
 
-/* line 35, ../scss/global.scss */
+/* line 42, ../scss/global.scss */
 .left {
   float: left;
 }
 
-/* line 39, ../scss/global.scss */
+/* line 46, ../scss/global.scss */
 .hidden {
   display: none;
+}
+
+/* line 50, ../scss/global.scss */
+h1, h2 {
+  color: #c0c9cf;
+  text-align: right;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  font-size: 1rem;
 }

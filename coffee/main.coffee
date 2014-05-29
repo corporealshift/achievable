@@ -1,7 +1,7 @@
 quick_create_index = 0
 $ ->
     $('#quick-create').on 'keyup', 'input[type=text]', (e) ->
-        return true if (e.which == 91) 
+        return true if (e.which == 91)
         console.log "keypress", e
         text = $(this).val()
         dropdown = $ '#quick-create .options'
@@ -12,5 +12,6 @@ $ ->
 
     $('#quick-create').on 'submit', (e) ->
         e.preventDefault()
-            
-                
+
+    $('body').on 'click', (e) ->
+        $('#quick-create .options').addClass 'hidden'

@@ -1,0 +1,23 @@
+.main {
+    min-width: 1000px;
+    margin-top: 3rem;
+}
+
+.tasks, .trends {
+    min-height: 500px;
+    float: left;
+}
+
+.trends, .activity-stream {
+    border-left: 1px solid $border_color;
+    width: 25%;
+}
+
+.activity-stream {
+    float: right;
+    min-height: 500px;
+}
+
+.tasks {
+    width: 49.8%;
+}

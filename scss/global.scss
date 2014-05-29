@@ -6,11 +6,18 @@ $highlight_color: #ddf5f8;
 $background: #fdfdfd;
 $text_color: #020202;
 $light_text: #777;
+$extra_light_text: #C0C9CF;
 
 body {
     background: $background;
     color: $text_color;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+}
+
+input, textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
 }
 
 a {
@@ -38,4 +45,12 @@ a {
 
 .hidden {
     display: none;
+}
+
+h1, h2 {
+    color: $extra_light_text;
+    text-align: right;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    font-size: 1rem;
 }

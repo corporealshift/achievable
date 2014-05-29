@@ -1,12 +1,14 @@
 /*
-Syntax error: Undefined variable: "$headers_and_btns".
-        on line 5 of /Users/mbp/Documents/apps/achievable/scss/header.scss
-
-1: /Users/mbp/Documents/apps/achievable/scss/header.scss
+Syntax error: Undefined variable: "$border_color".
+        on line 12 of /Users/mbp/Documents/apps/achievable/scss/dashboard.scss
 
 Backtrace:
-/Users/mbp/Documents/apps/achievable/scss/header.scss:5
+/Users/mbp/Documents/apps/achievable/scss/dashboard.scss:12
 /usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/script/variable.rb:49:in `_perform'
+/usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/script/node.rb:40:in `perform'
+/usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/script/list.rb:71:in `block in _perform'
+/usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/script/list.rb:71:in `map'
+/usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/script/list.rb:71:in `_perform'
 /usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/script/node.rb:40:in `perform'
 /usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:298:in `visit_prop'
 /usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
@@ -76,4 +78,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$headers_and_btns\".\A         on line 5 of /Users/mbp/Documents/apps/achievable/scss/header.scss\A \A 1: /Users/mbp/Documents/apps/achievable/scss/header.scss"; }
+  content: "Syntax error: Undefined variable: \"$border_color\".\A         on line 12 of /Users/mbp/Documents/apps/achievable/scss/dashboard.scss"; }
