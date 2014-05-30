@@ -1,0 +1,96 @@
+.task {
+    background: $background;
+    width: 300px;
+    height: 100px;
+    padding: 0.4rem;
+    margin: 0.4rem;
+    border: 1px solid $border_color;
+    float: left;
+    position: relative;
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+
+    h4 {
+        font-size: 1.1rem;
+        font-weight: normal;
+        float: left;
+    }
+
+    .description-short {
+        display: block;
+        float: left;
+        margin-top: 0.3rem;
+        margin-left: 0.4rem;
+        color: $light_text;
+        font-size: 0.9rem;
+        width: 80%;
+    }
+
+    .attachments, .motivation {
+        position: absolute;
+        bottom: 0.3rem;
+    }
+
+    .attachments {
+        left: 0;
+        width: 50%;
+        height: 3rem;
+        line-height: 3rem;
+    }
+
+    .motivation {
+        left: 50%;
+        text-align: center;
+        line-height: 1.3rem;
+
+        &:before {
+            content: "^";
+            font-family: monospace;
+            font-size: 1.4rem;
+        }
+    }
+
+    .remaining, .points, .chain-length, .actions {
+        display: block;
+        float: right;
+        clear: right;
+        margin-top: 0.6rem;
+    }
+
+    .remaining {
+        background: green; // changes as the date gets closer
+        border-radius: 0.4rem;
+        padding: 0.3rem 0.4rem;
+        font-weight: normal;
+        font-size: 0.7rem;
+        color: $header_and_btn_text_hover;
+        margin-top: 0;
+
+        &[prox="2"] {
+            background: yellow;
+            color: $text_color;
+        }
+
+        &[prox="1"], &[prox="0"] {
+            background: orange;
+        }
+
+        &[prox="-1"] { // late! red is late
+            background: red;
+        }
+
+        &[prox="10"] { // More than 5 days way out in the future
+            background: #ccc;
+        }
+    }
+
+    .chain-length {
+        &:before {
+            display: inline-block;
+            margin-right: 0.2rem;
+            font-size: 0.6rem;
+            content: "x";
+        }
+    }
+}

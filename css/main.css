@@ -235,5 +235,102 @@ h1, h2 {
 
 /* line 21, ../scss/dashboard.scss */
 .tasks {
-  width: 49.8%;
+  width: 48.9%;
+  padding: 0.4%;
+}
+
+/* line 1, ../scss/task.scss */
+.task {
+  background: #fdfdfd;
+  width: 300px;
+  height: 100px;
+  padding: 0.4rem;
+  margin: 0.4rem;
+  border: 1px solid #999999;
+  float: left;
+  position: relative;
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+}
+/* line 14, ../scss/task.scss */
+.task h4 {
+  font-size: 1.1rem;
+  font-weight: normal;
+  float: left;
+}
+/* line 20, ../scss/task.scss */
+.task .description-short {
+  display: block;
+  float: left;
+  margin-top: 0.3rem;
+  margin-left: 0.4rem;
+  color: #777777;
+  font-size: 0.9rem;
+  width: 80%;
+}
+/* line 30, ../scss/task.scss */
+.task .attachments, .task .motivation {
+  position: absolute;
+  bottom: 0.3rem;
+}
+/* line 35, ../scss/task.scss */
+.task .attachments {
+  left: 0;
+  width: 50%;
+  height: 3rem;
+  line-height: 3rem;
+}
+/* line 42, ../scss/task.scss */
+.task .motivation {
+  left: 50%;
+  text-align: center;
+  line-height: 1.3rem;
+}
+/* line 47, ../scss/task.scss */
+.task .motivation:before {
+  content: "^";
+  font-family: monospace;
+  font-size: 1.4rem;
+}
+/* line 54, ../scss/task.scss */
+.task .remaining, .task .points, .task .chain-length, .task .actions {
+  display: block;
+  float: right;
+  clear: right;
+  margin-top: 0.6rem;
+}
+/* line 61, ../scss/task.scss */
+.task .remaining {
+  background: green;
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.4rem;
+  font-weight: normal;
+  font-size: 0.7rem;
+  color: white;
+  margin-top: 0;
+}
+/* line 70, ../scss/task.scss */
+.task .remaining[prox="2"] {
+  background: yellow;
+  color: #020202;
+}
+/* line 75, ../scss/task.scss */
+.task .remaining[prox="1"], .task .remaining[prox="0"] {
+  background: orange;
+}
+/* line 79, ../scss/task.scss */
+.task .remaining[prox="-1"] {
+  background: red;
+}
+/* line 83, ../scss/task.scss */
+.task .remaining[prox="10"] {
+  background: #ccc;
+}
+/* line 89, ../scss/task.scss */
+.task .chain-length:before {
+  display: inline-block;
+  margin-right: 0.2rem;
+  font-size: 0.6rem;
+  content: "x";
 }
