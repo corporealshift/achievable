@@ -29,7 +29,7 @@ $(function() {
       return $('#menu').addClass('hidden');
     }
   });
-  return $('.actions').on('click', function(e) {
+  $('.actions').on('click', function(e) {
     var menu;
     menu = $('#menu');
     e.preventDefault();
@@ -38,5 +38,15 @@ $(function() {
       top: e.pageY - 5,
       left: e.pageX + 15
     });
+  });
+  $('.task').on('dragstart dragend', function(e) {
+    return $('.task-actions').toggleClass('invisible');
+  });
+  $('.task-actions div').on('dragenter', function(e) {
+    console.log('drug over action ' + $(this).text());
+    return $(this).siblings().addClass('fade-out');
+  });
+  return $('.task-actions div').on('dragleave', function(e) {
+    return $(this).siblings().removeClass('fade-out');
   });
 });

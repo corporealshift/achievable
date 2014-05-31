@@ -24,6 +24,14 @@ $shadow: #ccc;
     }
 }
 
+@mixin fade-out {
+    @include fast-animation;
+    &.fade-out {
+        -webkit-filter: grayscale(75%);
+        -moz-filter: grayscale(75%);
+    }
+}
+
 body {
     background: $background;
     color: $text_color;
@@ -61,6 +69,10 @@ a {
 
 .hidden {
     display: none;
+}
+
+.invisible {
+    opacity: 0;
 }
 
 h1, h2 {

@@ -27,3 +27,13 @@ $ ->
         menu.css
             top: e.pageY - 5
             left: e.pageX + 15
+
+    $('.task').on 'dragstart dragend', (e) ->
+        $('.task-actions').toggleClass 'invisible'
+
+    $('.task-actions div').on 'dragenter', (e) ->
+        console.log 'drug over action ' + $(this).text()
+        $(this).siblings().addClass 'fade-out'
+
+    $('.task-actions div').on 'dragleave', (e) ->
+        $(this).siblings().removeClass 'fade-out'

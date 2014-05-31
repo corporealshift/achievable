@@ -21,4 +21,38 @@
 .tasks {
     width: 48.9%;
     padding: 0.4%;
+    position: relative;
+
+    .task-actions {
+        position: absolute;
+        width: 99.2%;
+        height: 2.5rem;
+        background: $background;
+        top: 0;
+        @include fast-animation;
+
+        div {
+            width: 33.3%;
+            text-align: center;
+            line-height: 2.5rem;
+            float: left;
+        }
+
+        .complete {
+            background: green;
+            color: $header_and_btn_text;
+            @include fade-out;
+        }
+
+        .postpone {
+            background: orange;
+            @include fade-out;
+        }
+
+        .edit {
+            background: gray;
+            color: $header_and_btn_text;
+            @include fade-out;
+        }
+    }
 }
