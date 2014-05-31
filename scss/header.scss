@@ -4,6 +4,7 @@
     width: 100%;
     background: $headers_and_btns;
     color: $header_and_btn_text;
+    z-index: 1;
 }
 
 .header {
@@ -64,14 +65,7 @@
         width: 98%;
 
         a {
-            color: $light_text;
-            display: block;
-            padding: 0 1rem;
-            &:hover {
-                transition: 0.15s all linear;
-                background: $highlight_color;
-                text-decoration: none;
-            }
+            @include menu-links;
         }
 
         .user-value {

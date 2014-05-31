@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 11, ../scss/global.scss */
+/* line 27, ../scss/global.scss */
 body {
   background: #fdfdfd;
   color: #020202;
@@ -71,45 +71,45 @@ body {
   font-weight: lighter;
 }
 
-/* line 18, ../scss/global.scss */
+/* line 34, ../scss/global.scss */
 input, textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: lighter;
 }
 
-/* line 23, ../scss/global.scss */
+/* line 39, ../scss/global.scss */
 a {
   text-decoration: none;
   color: #020202;
 }
-/* line 27, ../scss/global.scss */
+/* line 43, ../scss/global.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 32, ../scss/global.scss */
+/* line 48, ../scss/global.scss */
 .group:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 38, ../scss/global.scss */
+/* line 54, ../scss/global.scss */
 .right {
   float: right;
 }
 
-/* line 42, ../scss/global.scss */
+/* line 58, ../scss/global.scss */
 .left {
   float: left;
 }
 
-/* line 46, ../scss/global.scss */
+/* line 62, ../scss/global.scss */
 .hidden {
   display: none;
 }
 
-/* line 50, ../scss/global.scss */
+/* line 66, ../scss/global.scss */
 h1, h2 {
   color: #c0c9cf;
   text-align: right;
@@ -125,20 +125,21 @@ h1, h2 {
   width: 100%;
   background: #aa3311;
   color: #dedede;
+  z-index: 1;
 }
 
-/* line 9, ../scss/header.scss */
+/* line 10, ../scss/header.scss */
 .header {
   height: 3rem;
   line-height: 3rem;
   margin: 0 1rem;
 }
-/* line 14, ../scss/header.scss */
+/* line 15, ../scss/header.scss */
 .header .total-points {
   margin-right: 3rem;
   font-size: 1.3rem;
 }
-/* line 19, ../scss/header.scss */
+/* line 20, ../scss/header.scss */
 .header input[type=text] {
   line-height: 1.8rem;
   font-size: 1rem;
@@ -148,35 +149,35 @@ h1, h2 {
   border: none;
   display: block;
 }
-/* line 29, ../scss/header.scss */
+/* line 30, ../scss/header.scss */
 .header #quick-create {
   width: 33%;
   position: relative;
 }
-/* line 34, ../scss/header.scss */
+/* line 35, ../scss/header.scss */
 .header #search {
   width: 25%;
   position: relative;
 }
-/* line 39, ../scss/header.scss */
+/* line 40, ../scss/header.scss */
 .header .configuration {
   margin-left: 3rem;
 }
-/* line 42, ../scss/header.scss */
+/* line 43, ../scss/header.scss */
 .header .configuration a {
   color: #dedede;
   line-height: 3rem;
   padding: 0 1rem;
   display: inline-block;
 }
-/* line 48, ../scss/header.scss */
+/* line 49, ../scss/header.scss */
 .header .configuration a:hover {
   text-decoration: none;
   color: white;
   background: rgba(0, 0, 0, 0.2);
   transition: 0.15s all linear;
 }
-/* line 57, ../scss/header.scss */
+/* line 58, ../scss/header.scss */
 .header .options {
   position: absolute;
   border: 1px solid #999999;
@@ -186,25 +187,25 @@ h1, h2 {
   border-top: none;
   width: 98%;
 }
-/* line 66, ../scss/header.scss */
+/* line 67, ../scss/header.scss */
 .header .options a {
   color: #777777;
   display: block;
   padding: 0 1rem;
 }
-/* line 70, ../scss/header.scss */
+/* line 20, ../scss/global.scss */
 .header .options a:hover {
   transition: 0.15s all linear;
   background: #ddf5f8;
   text-decoration: none;
 }
-/* line 77, ../scss/header.scss */
+/* line 71, ../scss/header.scss */
 .header .options .user-value {
   color: #020202;
   padding-left: 0.4rem;
   font-weight: normal;
 }
-/* line 82, ../scss/header.scss */
+/* line 76, ../scss/header.scss */
 .header .options .user-value:hover {
   text-decoration: underline;
 }
@@ -333,4 +334,30 @@ h1, h2 {
   margin-right: 0.2rem;
   font-size: 0.6rem;
   content: "x";
+}
+
+/* line 1, ../scss/menu.scss */
+#menu {
+  position: absolute;
+  border: 1px solid #000;
+  box-shadow: 0px 0px 4px #cccccc;
+  line-height: 1.5rem;
+  z-index: 2;
+  background: #fdfdfd;
+}
+/* line 9, ../scss/menu.scss */
+#menu a {
+  color: #777777;
+  display: block;
+  padding: 0 1rem;
+}
+/* line 20, ../scss/global.scss */
+#menu a:hover {
+  transition: 0.15s all linear;
+  background: #ddf5f8;
+  text-decoration: none;
+}
+/* line 12, ../scss/menu.scss */
+#menu a:hover {
+  color: #020202;
 }

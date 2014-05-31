@@ -7,6 +7,22 @@ $background: #fdfdfd;
 $text_color: #020202;
 $light_text: #777;
 $extra_light_text: #C0C9CF;
+$shadow: #ccc;
+
+@mixin fast-animation {
+    transition: 0.15s all linear;
+}
+
+@mixin menu-links {
+    color: $light_text;
+    display: block;
+    padding: 0 1rem;
+    &:hover {
+        @include fast-animation;
+        background: $highlight_color;
+        text-decoration: none;
+    }
+}
 
 body {
     background: $background;

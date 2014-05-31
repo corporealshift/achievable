@@ -1,4 +1,4 @@
-/* line 11, ../scss/global.scss */
+/* line 27, ../scss/global.scss */
 body {
   background: #fdfdfd;
   color: #020202;
@@ -6,45 +6,45 @@ body {
   font-weight: lighter;
 }
 
-/* line 18, ../scss/global.scss */
+/* line 34, ../scss/global.scss */
 input, textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: lighter;
 }
 
-/* line 23, ../scss/global.scss */
+/* line 39, ../scss/global.scss */
 a {
   text-decoration: none;
   color: #020202;
 }
-/* line 27, ../scss/global.scss */
+/* line 43, ../scss/global.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 32, ../scss/global.scss */
+/* line 48, ../scss/global.scss */
 .group:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 38, ../scss/global.scss */
+/* line 54, ../scss/global.scss */
 .right {
   float: right;
 }
 
-/* line 42, ../scss/global.scss */
+/* line 58, ../scss/global.scss */
 .left {
   float: left;
 }
 
-/* line 46, ../scss/global.scss */
+/* line 62, ../scss/global.scss */
 .hidden {
   display: none;
 }
 
-/* line 50, ../scss/global.scss */
+/* line 66, ../scss/global.scss */
 h1, h2 {
   color: #c0c9cf;
   text-align: right;

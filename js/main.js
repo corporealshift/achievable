@@ -23,7 +23,20 @@ $(function() {
   $('#quick-create').on('submit', function(e) {
     return e.preventDefault();
   });
-  return $('body').on('click', function(e) {
-    return $('#quick-create .options').addClass('hidden');
+  $('body').on('click', function(e) {
+    $('#quick-create .options').addClass('hidden');
+    if (!$(e.target).is('.actions')) {
+      return $('#menu').addClass('hidden');
+    }
+  });
+  return $('.actions').on('click', function(e) {
+    var menu;
+    menu = $('#menu');
+    e.preventDefault();
+    menu.removeClass('hidden');
+    return menu.css({
+      top: e.pageY - 5,
+      left: e.pageX + 15
+    });
   });
 });

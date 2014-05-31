@@ -15,3 +15,15 @@ $ ->
 
     $('body').on 'click', (e) ->
         $('#quick-create .options').addClass 'hidden'
+
+        if (!$(e.target).is('.actions'))
+            $('#menu').addClass 'hidden'
+
+    $('.actions').on 'click', (e) ->
+        menu = $('#menu')
+        e.preventDefault()
+
+        menu.removeClass 'hidden'
+        menu.css
+            top: e.pageY - 5
+            left: e.pageX + 15
