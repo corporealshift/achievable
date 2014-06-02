@@ -1,4 +1,14 @@
 quick_create_index = 0
+
+show_create_modal = ->
+    $('#create-overlay').removeClass 'hidden'
+    title = $('#quick-create input[type=text]').val()
+    $('#create-overlay #create-task .title').val(title)
+    if (title.length > 0)
+        $('#create-overlay #create-task .due-date').focus()
+    else
+        $('#create-overlay #create-task .title').focus()
+        
 $ ->
     # Quick create events
     $('#quick-create').on 'keyup', 'input[type=text]', (e) ->
@@ -11,11 +21,15 @@ $ ->
         dropdown.addClass('hidden') if (e.which == 27)
 
     $('#quick-create').on 'submit', (e) ->
-        $('#create-overlay').removeClass 'hidden'
+
         $('#quick-create .options').addClass 'hidden'
-        $('#create-overlay #create-task .title').val($('#quick-create input[type=text]').val())
-        $('#create-overlay #create-task .due-date').focus()
+
         e.preventDefault()
+
+    $('#quick-create').on 'click', 'a', (e) ->
+        e.preventDefault();
+        if ($(e.target).is('.create-with-options'))
+            show_create_modal()
 
     # Close menu/overlay events
     $('body').on 'click', (e) ->
