@@ -131,5 +131,25 @@
         <div class="selected-elem"></div>
         <div class="modal"></div>
     </div>
+    <div id="create-overlay" class="overlay hidden">
+        <div id="create" class="create">
+            <h3>Create Task</h3>
+            <form id="create-task" action="" method="post">
+                <div>
+                    <label>Title:</label>
+                    <input placeholder="Task title" type="text" class="title" name="title" value="">
+                </div>
+                <div>
+                    <label>Due Date:</label>
+                    <input type="text" name="due_date" class="due-date" value="" placeholder="Due Date">
+                </div>
+                <div>
+                    <label>Description:</label>
+                    <textarea name="description" placeholder="Task Description" rows="8" cols="40"></textarea>
+                </div>
+                <input type="submit" value="Create Task">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

@@ -11,6 +11,10 @@ $ ->
         dropdown.addClass('hidden') if (e.which == 27)
 
     $('#quick-create').on 'submit', (e) ->
+        $('#create-overlay').removeClass 'hidden'
+        $('#quick-create .options').addClass 'hidden'
+        $('#create-overlay #create-task .title').val($('#quick-create input[type=text]').val())
+        $('#create-overlay #create-task .due-date').focus()
         e.preventDefault()
 
     # Close menu/overlay events
@@ -21,7 +25,13 @@ $ ->
             $('#menu').addClass 'hidden'
 
     $('#overlay').on 'click', (e) ->
-        $('#overlay').addClass 'hidden'
+        if (e.target == this)
+            $('#overlay').addClass 'hidden'
+
+    $('#create-overlay').on 'click', (e) ->
+        if (e.target == this)
+            $('#create-overlay').addClass 'hidden'
+
 
     # Task Events
     $('.actions').on 'click', (e) ->

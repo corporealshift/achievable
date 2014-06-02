@@ -20,6 +20,10 @@ $(function() {
     }
   });
   $('#quick-create').on('submit', function(e) {
+    $('#create-overlay').removeClass('hidden');
+    $('#quick-create .options').addClass('hidden');
+    $('#create-overlay #create-task .title').val($('#quick-create input[type=text]').val());
+    $('#create-overlay #create-task .due-date').focus();
     return e.preventDefault();
   });
   $('body').on('click', function(e) {
@@ -29,7 +33,14 @@ $(function() {
     }
   });
   $('#overlay').on('click', function(e) {
-    return $('#overlay').addClass('hidden');
+    if (e.target === this) {
+      return $('#overlay').addClass('hidden');
+    }
+  });
+  $('#create-overlay').on('click', function(e) {
+    if (e.target === this) {
+      return $('#create-overlay').addClass('hidden');
+    }
   });
   $('.actions').on('click', function(e) {
     var menu;

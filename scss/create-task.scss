@@ -1,0 +1,28 @@
+.create {
+
+    padding: 1rem;
+
+    h3 {
+        font-weight: normal;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    div {
+        line-height: 1rem;
+        padding-bottom: 0.4em;
+
+        label {
+            display: inline-block;
+            width: 75px;
+        }
+
+        input, textarea {
+            vertical-align: top;
+            margin-left: 0.5rem;
+            border: 1px solid $border_color;
+            padding: 2px 5px;
+            font-size: 0.9rem;
+        }
+    }
+}
