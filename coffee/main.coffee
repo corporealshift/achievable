@@ -1,4 +1,5 @@
 quick_create_index = 0
+selected_task = null
 
 show_create_modal = ->
     $('#create-overlay').removeClass 'hidden'
@@ -8,7 +9,20 @@ show_create_modal = ->
         $('#create-overlay #create-task .due-date').focus()
     else
         $('#create-overlay #create-task .title').focus()
-        
+
+show_task_overlay = (original_task) ->
+    new_task = original_task.clone()
+    $('#overlay .selected-elem').html new_task
+    $('#overlay .selected-elem').css original_task.offset()
+    console.log original_task
+
+    $('#overlay').removeClass 'hidden'
+
+    # modal top should be 75px above the middle of the task
+    $('.modal').css
+        top: original_task.offset().top + (original_task[0].offsetHeight / 2) - 75
+        left: original_task.offset().left + original_task[0].offsetWidth + 15
+
 $ ->
     # Quick create events
     $('#quick-create').on 'keyup', 'input[type=text]', (e) ->
@@ -19,6 +33,7 @@ $ ->
             dropdown.removeClass 'hidden'
             $('#quick-create .user-value').text(text)
         dropdown.addClass('hidden') if (e.which == 27)
+        show_create_modal() if (e.which == 13)
 
     $('#quick-create').on 'submit', (e) ->
 
@@ -37,6 +52,7 @@ $ ->
 
         if (!$(e.target).is('.actions'))
             $('#menu').addClass 'hidden'
+            selected_task = null
 
     $('#overlay').on 'click', (e) ->
         if (e.target == this)
@@ -51,28 +67,24 @@ $ ->
     $('.actions').on 'click', (e) ->
         menu = $('#menu')
         e.preventDefault()
-
+        selected_task = $(this).parent()
         menu.removeClass 'hidden'
         menu.css
             top: e.pageY - 5
             left: e.pageX + 15
 
+    $('#menu').on 'click', 'a', (e) ->
+        e.preventDefault()
+        e.preventDefault();
+        show_task_overlay(selected_task)
+
+
+
     # Show task details. This should happen when the user clicks "edit" in
     # the actions menu too
     $('.task h4').on 'click', (e) ->
         e.preventDefault();
-        original_task = $(this).parent()
-        new_task = original_task.clone()
-        $('#overlay .selected-elem').html new_task
-        $('#overlay .selected-elem').css original_task.offset()
-        console.log original_task
-
-        $('#overlay').removeClass 'hidden'
-
-        # modal top should be 75px above the middle of the task
-        $('.modal').css
-            top: original_task.offset().top + (original_task[0].offsetHeight / 2) - 75
-            left: original_task.offset().left + original_task[0].offsetWidth + 15
+        show_task_overlay($(this).parent())
 
     $('.task').on 'dragstart dragend', (e) ->
         $('.task-actions').toggleClass 'invisible'
