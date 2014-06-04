@@ -94,3 +94,35 @@
         }
     }
 }
+
+.task-details {
+    line-height: 1.4rem;
+    font-size: 0.9rem;
+    position: relative;
+
+    h4 {
+        font-size: 0.8rem;
+        padding-bottom: 0.5rem;
+        color: $extra_light_text;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    h5 {
+        padding-top: 0.5rem;
+        font-size: 0.8rem;
+        font-weight: normal;
+    }
+
+    label {
+        display: block;
+        width: 100px;
+        float: left;
+    }
+
+    span {
+        font-weight: normal;
+        float: left;
+    }
+}

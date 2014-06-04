@@ -80,10 +80,11 @@ h1, h2 {
   position: absolute;
   box-shadow: 0px 0px 4px #000;
   background: #fdfdfd;
-  width: 200px;
-  height: 350px;
+  min-width: 300px;
+  padding: 1rem;
+  min-height: 150px;
 }
-/* line 109, ../scss/global.scss */
+/* line 110, ../scss/global.scss */
 .overlay .modal:before, .create-overlay .modal:before {
   display: block;
   position: absolute;
@@ -97,7 +98,7 @@ h1, h2 {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
 }
-/* line 125, ../scss/global.scss */
+/* line 126, ../scss/global.scss */
 .overlay .create, .create-overlay .create {
   position: absolute;
   left: 25%;

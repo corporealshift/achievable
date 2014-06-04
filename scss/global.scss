@@ -103,8 +103,9 @@ h1, h2 {
         position: absolute;
         box-shadow: 0px 0px 4px #000;
         background: $background;
-        width: 200px;
-        height: 350px;
+        min-width: 300px;
+        padding: 1rem;
+        min-height: 150px;
 
         &:before {
             display: block;

@@ -145,10 +145,11 @@ h1, h2 {
   position: absolute;
   box-shadow: 0px 0px 4px #000;
   background: #fdfdfd;
-  width: 200px;
-  height: 350px;
+  min-width: 300px;
+  padding: 1rem;
+  min-height: 150px;
 }
-/* line 109, ../scss/global.scss */
+/* line 110, ../scss/global.scss */
 .overlay .modal:before, .create-overlay .modal:before {
   display: block;
   position: absolute;
@@ -162,7 +163,7 @@ h1, h2 {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
 }
-/* line 125, ../scss/global.scss */
+/* line 126, ../scss/global.scss */
 .overlay .create, .create-overlay .create {
   position: absolute;
   left: 25%;
@@ -436,6 +437,39 @@ h1, h2 {
   margin-right: 0.2rem;
   font-size: 0.6rem;
   content: "x";
+}
+
+/* line 98, ../scss/task.scss */
+.task-details {
+  line-height: 1.4rem;
+  font-size: 0.9rem;
+  position: relative;
+}
+/* line 103, ../scss/task.scss */
+.task-details h4 {
+  font-size: 0.8rem;
+  padding-bottom: 0.5rem;
+  color: #c0c9cf;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+/* line 112, ../scss/task.scss */
+.task-details h5 {
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+/* line 118, ../scss/task.scss */
+.task-details label {
+  display: block;
+  width: 100px;
+  float: left;
+}
+/* line 124, ../scss/task.scss */
+.task-details span {
+  font-weight: normal;
+  float: left;
 }
 
 /* line 1, ../scss/menu.scss */
