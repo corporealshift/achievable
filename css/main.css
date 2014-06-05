@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 35, ../scss/global.scss */
+/* line 36, ../scss/global.scss */
 body {
   background: #fdfdfd;
   color: #020202;
@@ -71,50 +71,50 @@ body {
   font-weight: lighter;
 }
 
-/* line 42, ../scss/global.scss */
+/* line 43, ../scss/global.scss */
 input, textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: lighter;
 }
 
-/* line 47, ../scss/global.scss */
+/* line 48, ../scss/global.scss */
 a {
   text-decoration: none;
   color: #020202;
 }
-/* line 51, ../scss/global.scss */
+/* line 52, ../scss/global.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 56, ../scss/global.scss */
+/* line 57, ../scss/global.scss */
 .group:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 62, ../scss/global.scss */
+/* line 63, ../scss/global.scss */
 .right {
   float: right;
 }
 
-/* line 66, ../scss/global.scss */
+/* line 67, ../scss/global.scss */
 .left {
   float: left;
 }
 
-/* line 70, ../scss/global.scss */
+/* line 71, ../scss/global.scss */
 .hidden {
   display: none;
 }
 
-/* line 74, ../scss/global.scss */
+/* line 75, ../scss/global.scss */
 .invisible {
   opacity: 0;
 }
 
-/* line 78, ../scss/global.scss */
+/* line 79, ../scss/global.scss */
 h1, h2 {
   color: #c0c9cf;
   text-align: right;
@@ -123,7 +123,7 @@ h1, h2 {
   font-size: 1rem;
 }
 
-/* line 86, ../scss/global.scss */
+/* line 87, ../scss/global.scss */
 .overlay, .create-overlay {
   position: fixed;
   width: 100%;
@@ -132,15 +132,15 @@ h1, h2 {
   z-index: 2;
   top: 0;
 }
-/* line 94, ../scss/global.scss */
+/* line 95, ../scss/global.scss */
 .overlay .selected-elem, .create-overlay .selected-elem {
   position: absolute;
 }
-/* line 97, ../scss/global.scss */
+/* line 98, ../scss/global.scss */
 .overlay .selected-elem *, .create-overlay .selected-elem * {
   margin: 0;
 }
-/* line 102, ../scss/global.scss */
+/* line 103, ../scss/global.scss */
 .overlay .modal, .create-overlay .modal {
   position: absolute;
   box-shadow: 0px 0px 4px #000;
@@ -149,7 +149,7 @@ h1, h2 {
   padding: 1rem;
   min-height: 150px;
 }
-/* line 110, ../scss/global.scss */
+/* line 111, ../scss/global.scss */
 .overlay .modal:before, .create-overlay .modal:before {
   display: block;
   position: absolute;
@@ -163,7 +163,7 @@ h1, h2 {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
 }
-/* line 126, ../scss/global.scss */
+/* line 127, ../scss/global.scss */
 .overlay .create, .create-overlay .create {
   position: absolute;
   left: 25%;
@@ -247,7 +247,7 @@ h1, h2 {
   display: block;
   padding: 0 1rem;
 }
-/* line 20, ../scss/global.scss */
+/* line 21, ../scss/global.scss */
 .header .options a:hover {
   transition: 0.15s all linear;
   background: #ddf5f8;
@@ -316,7 +316,7 @@ h1, h2 {
   color: #dedede;
   transition: 0.15s all linear;
 }
-/* line 29, ../scss/global.scss */
+/* line 30, ../scss/global.scss */
 .tasks .task-actions .complete.fade-out {
   -webkit-filter: grayscale(75%);
   -moz-filter: grayscale(75%);
@@ -326,7 +326,7 @@ h1, h2 {
   background: orange;
   transition: 0.15s all linear;
 }
-/* line 29, ../scss/global.scss */
+/* line 30, ../scss/global.scss */
 .tasks .task-actions .postpone.fade-out {
   -webkit-filter: grayscale(75%);
   -moz-filter: grayscale(75%);
@@ -337,7 +337,7 @@ h1, h2 {
   color: #dedede;
   transition: 0.15s all linear;
 }
-/* line 29, ../scss/global.scss */
+/* line 30, ../scss/global.scss */
 .tasks .task-actions .edit.fade-out {
   -webkit-filter: grayscale(75%);
   -moz-filter: grayscale(75%);
@@ -440,36 +440,73 @@ h1, h2 {
 }
 
 /* line 98, ../scss/task.scss */
-.task-details {
+.overlay .modal.task-details {
   line-height: 1.4rem;
   font-size: 0.9rem;
-  position: relative;
+  padding: 0;
+  min-width: 350px;
+  min-height: 160px;
 }
-/* line 103, ../scss/task.scss */
-.task-details h4 {
+/* line 105, ../scss/task.scss */
+.overlay .modal.task-details h4 {
   font-size: 0.8rem;
   padding-bottom: 0.5rem;
   color: #c0c9cf;
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 60px;
 }
-/* line 112, ../scss/task.scss */
-.task-details h5 {
-  padding-top: 0.5rem;
-  font-size: 0.8rem;
-  font-weight: normal;
-}
-/* line 118, ../scss/task.scss */
-.task-details label {
+/* line 114, ../scss/task.scss */
+.overlay .modal.task-details label {
   display: block;
   width: 100px;
   float: left;
 }
-/* line 124, ../scss/task.scss */
-.task-details span {
+/* line 120, ../scss/task.scss */
+.overlay .modal.task-details span {
   font-weight: normal;
   float: left;
+}
+/* line 125, ../scss/task.scss */
+.overlay .modal.task-details .section {
+  padding: 1rem;
+  display: none;
+}
+/* line 129, ../scss/task.scss */
+.overlay .modal.task-details .section.selected {
+  display: block;
+}
+/* line 134, ../scss/task.scss */
+.overlay .modal.task-details .sections {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50px;
+  background: #999999;
+}
+/* line 142, ../scss/task.scss */
+.overlay .modal.task-details .sections a {
+  display: block;
+  text-align: center;
+  color: #dedede;
+  line-height: 2.5rem;
+}
+/* line 148, ../scss/task.scss */
+.overlay .modal.task-details .sections a.selected {
+  background: #fdfdfd;
+  color: #020202;
+}
+/* line 152, ../scss/task.scss */
+.overlay .modal.task-details .sections a.selected:hover {
+  background: #fdfdfd;
+  color: #020202;
+}
+/* line 158, ../scss/task.scss */
+.overlay .modal.task-details .sections a:hover {
+  background: #c0c9cf;
+  color: #020202;
+  text-decoration: none;
 }
 
 /* line 1, ../scss/menu.scss */
@@ -487,7 +524,7 @@ h1, h2 {
   display: block;
   padding: 0 1rem;
 }
-/* line 20, ../scss/global.scss */
+/* line 21, ../scss/global.scss */
 #menu a:hover {
   transition: 0.15s all linear;
   background: #ddf5f8;

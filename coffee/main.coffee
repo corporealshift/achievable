@@ -23,6 +23,12 @@ show_task_overlay = (original_task) ->
         top: original_task.offset().top + (original_task[0].offsetHeight / 2) - 75
         left: original_task.offset().left + original_task[0].offsetWidth + 15
 
+show_task_detail_section = (section) ->
+    $('.sections a').removeClass 'selected'
+    $('.sections .' + section).addClass 'selected'
+    $('.section').removeClass 'selected'
+    $('.section.' + section).toggleClass 'selected'
+
 $ ->
     # Quick create events
     $('#quick-create').on 'keyup', 'input[type=text]', (e) ->
@@ -75,8 +81,12 @@ $ ->
 
     $('#menu').on 'click', 'a', (e) ->
         e.preventDefault()
-        e.preventDefault();
         show_task_overlay(selected_task)
+
+    $('.sections a').on 'click', (e) ->
+        e.preventDefault()
+        classes = $(this).attr 'class'
+        show_task_detail_section(classes) if classes.indexOf('selected') < 0
 
 
 
