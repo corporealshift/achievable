@@ -574,8 +574,9 @@ h1, h2 {
   border: 1px solid #c0c9cf;
   width: 350px;
   z-index: 2;
+  transition: all 0.15s linear;
 }
-/* line 11, ../scss/notifications.scss */
+/* line 12, ../scss/notifications.scss */
 #notifications-window:before {
   display: block;
   position: absolute;
@@ -589,35 +590,35 @@ h1, h2 {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
 }
-/* line 25, ../scss/notifications.scss */
+/* line 26, ../scss/notifications.scss */
 #notifications-window a {
   color: #328cb6;
 }
-/* line 29, ../scss/notifications.scss */
+/* line 30, ../scss/notifications.scss */
 #notifications-window.top-unread:before {
   background: cornsilk;
 }
-/* line 33, ../scss/notifications.scss */
+/* line 34, ../scss/notifications.scss */
 #notifications-window .notification {
   position: relative;
   border-bottom: 1px solid #999999;
   padding: 0.6rem;
 }
-/* line 38, ../scss/notifications.scss */
+/* line 39, ../scss/notifications.scss */
 #notifications-window .notification.unread {
   background: cornsilk;
 }
-/* line 42, ../scss/notifications.scss */
+/* line 43, ../scss/notifications.scss */
 #notifications-window .notification:last-child {
   border-bottom: none;
 }
-/* line 46, ../scss/notifications.scss */
+/* line 47, ../scss/notifications.scss */
 #notifications-window .notification h4 {
   font-weight: normal;
   font-size: 0.9rem;
   line-height: 1.3rem;
 }
-/* line 52, ../scss/notifications.scss */
+/* line 53, ../scss/notifications.scss */
 #notifications-window .notification .close {
   font-size: 0.8rem;
   color: #c0c9cf;
@@ -625,7 +626,7 @@ h1, h2 {
   top: 0.3rem;
   right: 0.3rem;
 }
-/* line 59, ../scss/notifications.scss */
+/* line 60, ../scss/notifications.scss */
 #notifications-window .notification .close:hover {
   text-decoration: none;
   color: #020202;

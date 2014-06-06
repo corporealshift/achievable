@@ -53,12 +53,15 @@ $ ->
             show_create_modal()
 
     # Close menu/overlay events
-    $('body').on 'click', (e) ->
+    $('html').on 'click', (e) ->
         $('#quick-create .options').addClass 'hidden'
 
         if (!$(e.target).is('.actions'))
             $('#menu').addClass 'hidden'
             selected_task = null
+
+        if ($(e.target).closest('#notifications-window, #notifications').length == 0)
+            $('#notifications-window').addClass 'hidden'
 
     $('#overlay').on 'click', (e) ->
         if (e.target == this)
@@ -88,6 +91,22 @@ $ ->
         classes = $(this).attr 'class'
         show_task_detail_section(classes) if classes.indexOf('selected') < 0
 
+    # Notifications Events
+    $('#notifications').on 'click', (e) ->
+        e.preventDefault();
+        if ($('.notification:not(.hidden)', '#notifications-window').length > 0)
+            $('#notifications-window').toggleClass 'hidden'
+
+    $('#notifications-window .close').on 'click', (e) ->
+        e.preventDefault();
+        $(this).parent().addClass 'hidden'
+        if ($(this).parent().siblings('.notification:not(.hidden)').length == 0)
+            $('#notifications-window').addClass 'hidden'
+
+    $('#notifications-window .notification').on 'click', (e) ->
+        $(this).removeClass 'unread'
+        if ($('.unread',$(this).parent()).length == 0)
+            $(this).parent().removeClass 'top-unread'
 
 
     # Show task details. This should happen when the user clicks "edit" in
