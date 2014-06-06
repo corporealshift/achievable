@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 36, ../scss/global.scss */
+/* line 38, ../scss/global.scss */
 body {
   background: #fdfdfd;
   color: #020202;
@@ -71,50 +71,50 @@ body {
   font-weight: lighter;
 }
 
-/* line 43, ../scss/global.scss */
+/* line 45, ../scss/global.scss */
 input, textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: lighter;
 }
 
-/* line 48, ../scss/global.scss */
+/* line 50, ../scss/global.scss */
 a {
   text-decoration: none;
   color: #020202;
 }
-/* line 52, ../scss/global.scss */
+/* line 54, ../scss/global.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 57, ../scss/global.scss */
+/* line 59, ../scss/global.scss */
 .group:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 63, ../scss/global.scss */
+/* line 65, ../scss/global.scss */
 .right {
   float: right;
 }
 
-/* line 67, ../scss/global.scss */
+/* line 69, ../scss/global.scss */
 .left {
   float: left;
 }
 
-/* line 71, ../scss/global.scss */
+/* line 73, ../scss/global.scss */
 .hidden {
   display: none;
 }
 
-/* line 75, ../scss/global.scss */
+/* line 77, ../scss/global.scss */
 .invisible {
   opacity: 0;
 }
 
-/* line 79, ../scss/global.scss */
+/* line 81, ../scss/global.scss */
 h1, h2 {
   color: #c0c9cf;
   text-align: right;
@@ -123,7 +123,7 @@ h1, h2 {
   font-size: 1rem;
 }
 
-/* line 87, ../scss/global.scss */
+/* line 89, ../scss/global.scss */
 .overlay, .create-overlay {
   position: fixed;
   width: 100%;
@@ -132,15 +132,15 @@ h1, h2 {
   z-index: 2;
   top: 0;
 }
-/* line 95, ../scss/global.scss */
+/* line 97, ../scss/global.scss */
 .overlay .selected-elem, .create-overlay .selected-elem {
   position: absolute;
 }
-/* line 98, ../scss/global.scss */
+/* line 100, ../scss/global.scss */
 .overlay .selected-elem *, .create-overlay .selected-elem * {
   margin: 0;
 }
-/* line 103, ../scss/global.scss */
+/* line 105, ../scss/global.scss */
 .overlay .modal, .create-overlay .modal {
   position: absolute;
   box-shadow: 0px 0px 4px #000;
@@ -149,7 +149,7 @@ h1, h2 {
   padding: 1rem;
   min-height: 150px;
 }
-/* line 111, ../scss/global.scss */
+/* line 113, ../scss/global.scss */
 .overlay .modal:before, .create-overlay .modal:before {
   display: block;
   position: absolute;
@@ -163,7 +163,7 @@ h1, h2 {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
 }
-/* line 127, ../scss/global.scss */
+/* line 129, ../scss/global.scss */
 .overlay .create, .create-overlay .create {
   position: absolute;
   left: 25%;
@@ -247,7 +247,7 @@ h1, h2 {
   display: block;
   padding: 0 1rem;
 }
-/* line 21, ../scss/global.scss */
+/* line 23, ../scss/global.scss */
 .header .options a:hover {
   transition: 0.15s all linear;
   background: #ddf5f8;
@@ -316,7 +316,7 @@ h1, h2 {
   color: #dedede;
   transition: 0.15s all linear;
 }
-/* line 30, ../scss/global.scss */
+/* line 32, ../scss/global.scss */
 .tasks .task-actions .complete.fade-out {
   -webkit-filter: grayscale(75%);
   -moz-filter: grayscale(75%);
@@ -326,7 +326,7 @@ h1, h2 {
   background: orange;
   transition: 0.15s all linear;
 }
-/* line 30, ../scss/global.scss */
+/* line 32, ../scss/global.scss */
 .tasks .task-actions .postpone.fade-out {
   -webkit-filter: grayscale(75%);
   -moz-filter: grayscale(75%);
@@ -337,7 +337,7 @@ h1, h2 {
   color: #dedede;
   transition: 0.15s all linear;
 }
-/* line 30, ../scss/global.scss */
+/* line 32, ../scss/global.scss */
 .tasks .task-actions .edit.fade-out {
   -webkit-filter: grayscale(75%);
   -moz-filter: grayscale(75%);
@@ -513,7 +513,7 @@ h1, h2 {
 #menu {
   position: absolute;
   border: 1px solid #000;
-  box-shadow: 0px 0px 4px #cccccc;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
   line-height: 1.5rem;
   z-index: 2;
   background: #fdfdfd;
@@ -524,7 +524,7 @@ h1, h2 {
   display: block;
   padding: 0 1rem;
 }
-/* line 21, ../scss/global.scss */
+/* line 23, ../scss/global.scss */
 #menu a:hover {
   transition: 0.15s all linear;
   background: #ddf5f8;
@@ -562,4 +562,71 @@ h1, h2 {
   border: 1px solid #999999;
   padding: 2px 5px;
   font-size: 0.9rem;
+}
+
+/* line 1, ../scss/notifications.scss */
+#notifications-window {
+  position: absolute;
+  right: 5rem;
+  top: 2.8rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  background: #fdfdfd;
+  border: 1px solid #c0c9cf;
+  width: 350px;
+  z-index: 2;
+}
+/* line 11, ../scss/notifications.scss */
+#notifications-window:before {
+  display: block;
+  position: absolute;
+  right: 2.3rem;
+  top: -9px;
+  width: 20px;
+  height: 20px;
+  background: #fdfdfd;
+  content: " ";
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+}
+/* line 25, ../scss/notifications.scss */
+#notifications-window a {
+  color: #328cb6;
+}
+/* line 29, ../scss/notifications.scss */
+#notifications-window.top-unread:before {
+  background: cornsilk;
+}
+/* line 33, ../scss/notifications.scss */
+#notifications-window .notification {
+  position: relative;
+  border-bottom: 1px solid #999999;
+  padding: 0.6rem;
+}
+/* line 38, ../scss/notifications.scss */
+#notifications-window .notification.unread {
+  background: cornsilk;
+}
+/* line 42, ../scss/notifications.scss */
+#notifications-window .notification:last-child {
+  border-bottom: none;
+}
+/* line 46, ../scss/notifications.scss */
+#notifications-window .notification h4 {
+  font-weight: normal;
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+}
+/* line 52, ../scss/notifications.scss */
+#notifications-window .notification .close {
+  font-size: 0.8rem;
+  color: #c0c9cf;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+}
+/* line 59, ../scss/notifications.scss */
+#notifications-window .notification .close:hover {
+  text-decoration: none;
+  color: #020202;
 }
