@@ -1,0 +1,34 @@
+.activity-message {
+    background: $background;
+    height: 50px;
+    width: 90%;
+    padding: 0.4rem;
+    margin: 0.4rem auto;
+    border: 1px solid $extra_light_text;
+    position: relative;
+    font-size: 0.9rem;
+
+    a {
+        color: $link;
+        font-weight: normal;
+    }
+
+    h4 {
+        margin-bottom: 0.3rem;
+    }
+
+    .action {
+        position: absolute;
+        right: 0.4rem;
+        bottom: 0.4rem;
+        font-size: 0.8rem;
+        font-weight: lighter;
+    }
+
+    .avatar {
+        width: 40px;
+        margin-top: 0.3rem;
+        float: left;
+        margin-right: 0.3rem;
+    }
+}

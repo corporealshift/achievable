@@ -350,7 +350,7 @@ h1, h2 {
   height: 100px;
   padding: 0.4rem;
   margin: 0.4rem;
-  border: 1px solid #999999;
+  border: 1px solid #c0c9cf;
   float: left;
   position: relative;
   cursor: move;
@@ -619,6 +619,13 @@ h1, h2 {
   line-height: 1.3rem;
 }
 /* line 53, ../scss/notifications.scss */
+#notifications-window .notification .avatar {
+  width: 30px;
+  margin-top: 0.3rem;
+  float: left;
+  margin-right: 0.3rem;
+}
+/* line 60, ../scss/notifications.scss */
 #notifications-window .notification .close {
   font-size: 0.8rem;
   color: #c0c9cf;
@@ -626,8 +633,44 @@ h1, h2 {
   top: 0.3rem;
   right: 0.3rem;
 }
-/* line 60, ../scss/notifications.scss */
+/* line 67, ../scss/notifications.scss */
 #notifications-window .notification .close:hover {
   text-decoration: none;
   color: #020202;
+}
+
+/* line 1, ../scss/activity-stream.scss */
+.activity-message {
+  background: #fdfdfd;
+  height: 50px;
+  width: 90%;
+  padding: 0.4rem;
+  margin: 0.4rem auto;
+  border: 1px solid #c0c9cf;
+  position: relative;
+  font-size: 0.9rem;
+}
+/* line 11, ../scss/activity-stream.scss */
+.activity-message a {
+  color: #328cb6;
+  font-weight: normal;
+}
+/* line 16, ../scss/activity-stream.scss */
+.activity-message h4 {
+  margin-bottom: 0.3rem;
+}
+/* line 20, ../scss/activity-stream.scss */
+.activity-message .action {
+  position: absolute;
+  right: 0.4rem;
+  bottom: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: lighter;
+}
+/* line 28, ../scss/activity-stream.scss */
+.activity-message .avatar {
+  width: 40px;
+  margin-top: 0.3rem;
+  float: left;
+  margin-right: 0.3rem;
 }
