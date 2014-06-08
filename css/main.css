@@ -193,7 +193,11 @@ h1, h2 {
   margin-right: 3rem;
   font-size: 1.3rem;
 }
-/* line 20, ../scss/header.scss */
+/* line 19, ../scss/header.scss */
+.header .total-points a {
+  color: #c0c9cf;
+}
+/* line 24, ../scss/header.scss */
 .header input[type=text] {
   line-height: 1.8rem;
   font-size: 1rem;
@@ -203,35 +207,35 @@ h1, h2 {
   border: none;
   display: block;
 }
-/* line 30, ../scss/header.scss */
+/* line 34, ../scss/header.scss */
 .header #quick-create {
   width: 33%;
   position: relative;
 }
-/* line 35, ../scss/header.scss */
+/* line 39, ../scss/header.scss */
 .header #search {
   width: 25%;
   position: relative;
 }
-/* line 40, ../scss/header.scss */
+/* line 44, ../scss/header.scss */
 .header .configuration {
   margin-left: 3rem;
 }
-/* line 43, ../scss/header.scss */
+/* line 47, ../scss/header.scss */
 .header .configuration a {
   color: #dedede;
   line-height: 3rem;
   padding: 0 1rem;
   display: inline-block;
 }
-/* line 49, ../scss/header.scss */
+/* line 53, ../scss/header.scss */
 .header .configuration a:hover {
   text-decoration: none;
   color: white;
   background: rgba(0, 0, 0, 0.2);
   transition: 0.15s all linear;
 }
-/* line 58, ../scss/header.scss */
+/* line 62, ../scss/header.scss */
 .header .options {
   position: absolute;
   border: 1px solid #999999;
@@ -241,7 +245,7 @@ h1, h2 {
   border-top: none;
   width: 98%;
 }
-/* line 67, ../scss/header.scss */
+/* line 71, ../scss/header.scss */
 .header .options a {
   color: #777777;
   display: block;
@@ -253,13 +257,13 @@ h1, h2 {
   background: #ddf5f8;
   text-decoration: none;
 }
-/* line 71, ../scss/header.scss */
+/* line 75, ../scss/header.scss */
 .header .options .user-value {
   color: #020202;
   padding-left: 0.4rem;
   font-weight: normal;
 }
-/* line 76, ../scss/header.scss */
+/* line 80, ../scss/header.scss */
 .header .options .user-value:hover {
   text-decoration: underline;
 }
@@ -697,4 +701,13 @@ h1, h2 {
 /* line 19, ../scss/history.scss */
 .comparison a {
   color: #328cb6;
+}
+
+/* line 1, ../scss/profile/profile.scss */
+.profile {
+  width: 48.9%;
+  padding: 0.4%;
+  position: relative;
+  min-height: 500px;
+  float: left;
 }

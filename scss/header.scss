@@ -15,6 +15,10 @@
     .total-points {
         margin-right: 3rem;
         font-size: 1.3rem;
+
+        a {
+            color: $extra_light_text;
+        }
     }
 
     input[type=text] {
