@@ -674,3 +674,27 @@ h1, h2 {
   float: left;
   margin-right: 0.3rem;
 }
+
+/* line 1, ../scss/history.scss */
+.comparison {
+  padding: 0.7rem;
+}
+/* line 4, ../scss/history.scss */
+.comparison h4 {
+  font-weight: normal;
+  font-size: 1.1rem;
+  padding-bottom: 0.3rem;
+}
+/* line 10, ../scss/history.scss */
+.comparison p {
+  font-size: 0.9rem;
+  padding-top: 0.4rem;
+}
+/* line 15, ../scss/history.scss */
+.comparison b, .comparison a {
+  font-weight: normal;
+}
+/* line 19, ../scss/history.scss */
+.comparison a {
+  color: #328cb6;
+}

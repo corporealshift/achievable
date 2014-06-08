@@ -1,0 +1,22 @@
+.comparison {
+    padding: 0.7rem;
+
+    h4 {
+        font-weight: normal;
+        font-size: 1.1rem;
+        padding-bottom: 0.3rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        padding-top: 0.4rem;
+    }
+
+    b, a {
+        font-weight: normal;
+    }
+
+    a {
+        color: $link;
+    }
+}
