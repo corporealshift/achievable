@@ -9,6 +9,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Task'], ($, _, Backbone) ->
             "keydown input[type=text]": "stop_arrows"
             "submit": "submit"
             "click a": "option_selected"
+            "mouseover .options a" : "hover_option"
 
         stop_arrows: (e) ->
             e.preventDefault() if (e.which == 40 || e.which == 38)
@@ -17,8 +18,6 @@ define(['jquery', 'underscore', 'backbone', 'models/Task'], ($, _, Backbone) ->
             return true if (e.which == 91)
             text = @$('input[type=text]').val()
             dropdown = @$ '.options'
-
-            console.log e.which
 
             if (text.length > 0)
                 dropdown.removeClass 'hidden'
@@ -60,6 +59,9 @@ define(['jquery', 'underscore', 'backbone', 'models/Task'], ($, _, Backbone) ->
                 selected.removeClass 'selected'
                 step(selected).addClass 'selected'
 
+        hover_option: (e) ->
+            @$('.options .selected').removeClass 'selected'
+            @$(e.currentTarget).addClass 'selected'
 
         render: ->
             @$el.html(@template())

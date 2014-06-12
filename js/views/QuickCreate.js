@@ -8,7 +8,8 @@ define(['jquery', 'underscore', 'backbone', 'models/Task'], function($, _, Backb
       "keyup input[type=text]": "show_create_options",
       "keydown input[type=text]": "stop_arrows",
       "submit": "submit",
-      "click a": "option_selected"
+      "click a": "option_selected",
+      "mouseover .options a": "hover_option"
     },
     stop_arrows: function(e) {
       if (e.which === 40 || e.which === 38) {
@@ -22,7 +23,6 @@ define(['jquery', 'underscore', 'backbone', 'models/Task'], function($, _, Backb
       }
       text = this.$('input[type=text]').val();
       dropdown = this.$('.options');
-      console.log(e.which);
       if (text.length > 0) {
         dropdown.removeClass('hidden');
         this.$('.user-value').text(text);
@@ -75,6 +75,10 @@ define(['jquery', 'underscore', 'backbone', 'models/Task'], function($, _, Backb
         selected.removeClass('selected');
         return step(selected).addClass('selected');
       }
+    },
+    hover_option: function(e) {
+      this.$('.options .selected').removeClass('selected');
+      return this.$(e.currentTarget).addClass('selected');
     },
     render: function() {
       return this.$el.html(this.template());
