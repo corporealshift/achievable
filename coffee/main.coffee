@@ -1,17 +1,24 @@
 require.config(
-    baseUrl: 'js/components',
+    baseUrl: 'js',
     paths:
-        'jquery'     : 'jquery/dist/jquery.min',
-        'underscore' : 'underscore/underscore',
-        'backbone'   : 'backbone/backbone'
+        'jquery'     : 'components/jquery/dist/jquery.min',
+        'underscore' : 'components/underscore/underscore',
+        'backbone'   : 'components/backbone/backbone'
 )
 
-require(['jquery', 'underscore', 'backbone'], ($, _, Backbone) ->
- # test
+require(['jquery', 'underscore', 'backbone', 'models/Task', 'views/QuickCreate'], ($, _, Backbone) ->
+    Task = require 'models/Task'
+    QuickCreate = require 'views/QuickCreate'
+
+    quick_create = new QuickCreate()
+    task = new Task()
+    task.set 'title', 'test task'
+    console.log task
+
     quick_create_index = 0
     selected_task = null
 
-    show_create_modal = ->
+    window.show_create_modal = ->
         $('#create-overlay').removeClass 'hidden'
         title = $('#quick-create input[type=text]').val()
         $('#create-overlay #create-task .title').val(title)
@@ -40,28 +47,8 @@ require(['jquery', 'underscore', 'backbone'], ($, _, Backbone) ->
         $('.section.' + section).toggleClass 'selected'
 
     $ ->
+
         console.log "doc ready"
-        # Quick create events
-        $('#quick-create').on 'keyup', 'input[type=text]', (e) ->
-            return true if (e.which == 91)
-            text = $(this).val()
-            dropdown = $ '#quick-create .options'
-            if (text.length > 0)
-                dropdown.removeClass 'hidden'
-                $('#quick-create .user-value').text(text)
-            dropdown.addClass('hidden') if (e.which == 27)
-            show_create_modal() if (e.which == 13)
-
-        $('#quick-create').on 'submit', (e) ->
-
-            $('#quick-create .options').addClass 'hidden'
-
-            e.preventDefault()
-
-        $('#quick-create').on 'click', 'a', (e) ->
-            e.preventDefault();
-            if ($(e.target).is('.create-with-options'))
-                show_create_modal()
 
         # Close menu/overlay events
         $('html').on 'click', (e) ->

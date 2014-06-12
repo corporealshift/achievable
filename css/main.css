@@ -252,7 +252,7 @@ h1, h2 {
   padding: 0 1rem;
 }
 /* line 23, ../scss/global.scss */
-.header .options a:hover {
+.header .options a:hover, .header .options a.selected {
   transition: 0.15s all linear;
   background: #ddf5f8;
   text-decoration: none;
@@ -529,7 +529,7 @@ h1, h2 {
   padding: 0 1rem;
 }
 /* line 23, ../scss/global.scss */
-#menu a:hover {
+#menu a:hover, #menu a.selected {
   transition: 0.15s all linear;
   background: #ddf5f8;
   text-decoration: none;

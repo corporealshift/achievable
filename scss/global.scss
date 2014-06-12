@@ -20,7 +20,7 @@ $show_focus: rgb(255, 248, 220);
     color: $light_text;
     display: block;
     padding: 0 1rem;
-    &:hover {
+    &:hover, &.selected {
         @include fast-animation;
         background: $highlight_color;
         text-decoration: none;
