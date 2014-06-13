@@ -1,18 +1,20 @@
-define(['jquery', 'underscore', 'backbone', 'models/Task'], ($, _, Backbone) ->
-    Task = require 'models/Task'
+define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, _, Backbone) ->
+    Tasks = require 'models/Tasks'
+    Task  = require 'models/Task'
 
     Backbone.View.extend(
         el: '#quick-create'
 
         events:
-            "keyup input[type=text]": "show_create_options"
-            "keydown input[type=text]": "stop_arrows"
-            "submit": "submit"
-            "click a": "option_selected"
-            "mouseover .options a" : "hover_option"
+            "keyup input[type=text]"   : "show_create_options"
+            "keydown input[type=text]" : "stop_arrows"
+            "submit"                   : "submit"
+            "click a"                  : "option_selected"
+            "mouseover .options a"     : "hover_option"
+            "click a.create"           : "quick_create"
 
         stop_arrows: (e) ->
-            e.preventDefault() if (e.which == 40 || e.which == 38)
+            e.preventDefault() if (e.which == 40 or e.which == 38)
 
         show_create_options: (e) ->
             return true if (e.which == 91)
@@ -29,14 +31,17 @@ define(['jquery', 'underscore', 'backbone', 'models/Task'], ($, _, Backbone) ->
                     e.preventDefault()
                     @select_prev_option()
 
-
             dropdown.addClass('hidden') if (e.which == 27)
-            # Will be event based soon
-            window.show_create_modal() if (e.which == 13)
 
         submit: (e) ->
-            @$('.options').addClass 'hidden'
             e.preventDefault()
+            @$('.options').addClass 'hidden'
+            @quick_create()
+
+        quick_create: ->
+            title = @$('input[type=text]').val()
+            window.tasks ?= new Tasks()
+            window.tasks.add(new Task({title: title}))
 
         option_selected: (e) ->
             e.preventDefault();
@@ -62,8 +67,5 @@ define(['jquery', 'underscore', 'backbone', 'models/Task'], ($, _, Backbone) ->
         hover_option: (e) ->
             @$('.options .selected').removeClass 'selected'
             @$(e.currentTarget).addClass 'selected'
-
-        render: ->
-            @$el.html(@template())
     )
 )

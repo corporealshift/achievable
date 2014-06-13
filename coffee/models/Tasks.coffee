@@ -1,7 +1,6 @@
-define(['jquery', 'underscore', 'backbone', 'js/Task'], ($, _, Backbone) ->
-    Task = require 'js/Task'
+define(['jquery', 'underscore', 'backbone', 'models/Task'], ($, _, Backbone) ->
+    Task = require 'models/Task'
     Backbone.Collection.extend(
-         model: Task,
-         localStorage: new Backbone.LocalStorage("achievable"),
+         model: Task
     )
 )
