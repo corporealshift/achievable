@@ -51,9 +51,10 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], func
       if (window.tasks == null) {
         window.tasks = new Tasks();
       }
-      return window.tasks.add(new Task({
+      window.tasks.add(new Task({
         title: title
       }));
+      return this.$('input[type=text]').val('');
     },
     option_selected: function(e) {
       e.preventDefault();

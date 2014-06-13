@@ -42,6 +42,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, 
             title = @$('input[type=text]').val()
             window.tasks ?= new Tasks()
             window.tasks.add(new Task({title: title}))
+            @$('input[type=text]').val ''
 
         option_selected: (e) ->
             e.preventDefault();
