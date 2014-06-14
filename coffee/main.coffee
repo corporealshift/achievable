@@ -6,12 +6,15 @@ require.config(
         'backbone'   : 'components/backbone/backbone'
 )
 
-require(['jquery', 'underscore', 'backbone', 'models/Task', 'views/QuickCreate'], ($, _, Backbone) ->
+require(['jquery', 'underscore', 'backbone', 'models/Task', 'views/QuickCreate', 'views/CreateModal'], ($, _, Backbone) ->
     Task = require 'models/Task'
     QuickCreate = require 'views/QuickCreate'
+    CreateTask = require 'views/CreateModal'
 
     quick_create = new QuickCreate()
     task = new Task()
+    createModal = new CreateTask()
+
     task.set 'title', 'test task'
     console.log task
 

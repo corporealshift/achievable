@@ -8,12 +8,14 @@ require.config({
   }
 });
 
-require(['jquery', 'underscore', 'backbone', 'models/Task', 'views/QuickCreate'], function($, _, Backbone) {
-  var QuickCreate, Task, quick_create, quick_create_index, selected_task, show_task_detail_section, show_task_overlay, task;
+require(['jquery', 'underscore', 'backbone', 'models/Task', 'views/QuickCreate', 'views/CreateModal'], function($, _, Backbone) {
+  var CreateTask, QuickCreate, Task, createModal, quick_create, quick_create_index, selected_task, show_task_detail_section, show_task_overlay, task;
   Task = require('models/Task');
   QuickCreate = require('views/QuickCreate');
+  CreateTask = require('views/CreateModal');
   quick_create = new QuickCreate();
   task = new Task();
+  createModal = new CreateTask();
   task.set('title', 'test task');
   console.log(task);
   quick_create_index = 0;
