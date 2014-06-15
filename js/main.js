@@ -9,28 +9,16 @@ require.config({
 });
 
 require(['jquery', 'underscore', 'backbone', 'models/Task', 'views/QuickCreate', 'views/CreateModal'], function($, _, Backbone) {
-  var CreateTask, QuickCreate, Task, createModal, quick_create, quick_create_index, selected_task, show_task_detail_section, show_task_overlay, task;
+  var CreateTask, QuickCreate, Task, create_modal, quick_create, quick_create_index, selected_task, show_task_detail_section, show_task_overlay;
   Task = require('models/Task');
   QuickCreate = require('views/QuickCreate');
   CreateTask = require('views/CreateModal');
-  quick_create = new QuickCreate();
-  task = new Task();
-  createModal = new CreateTask();
-  task.set('title', 'test task');
-  console.log(task);
+  create_modal = new CreateTask();
+  quick_create = new QuickCreate({
+    create_modal: create_modal
+  });
   quick_create_index = 0;
   selected_task = null;
-  window.show_create_modal = function() {
-    var title;
-    $('#create-overlay').removeClass('hidden');
-    title = $('#quick-create input[type=text]').val();
-    $('#create-overlay #create-task .title').val(title);
-    if (title.length > 0) {
-      return $('#create-overlay #create-task .due-date').focus();
-    } else {
-      return $('#create-overlay #create-task .title').focus();
-    }
-  };
   show_task_overlay = function(original_task) {
     var new_task;
     new_task = original_task.clone();

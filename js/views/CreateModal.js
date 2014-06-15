@@ -11,7 +11,11 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], func
     initialize: function() {
       this.modal = this.$('#create');
       this.form = this.$('#create-task');
-      return window.tasks != null ? window.tasks : window.tasks = new Tasks;
+      if (window.tasks == null) {
+        window.tasks = new Tasks;
+      }
+      this.on("display", this.display_modal);
+      return this.on("hide", this.hide_modal);
     },
     submit: function(e) {
       var form_data, form_elem, task_parts, _i, _len;
@@ -22,11 +26,26 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], func
         form_elem = form_data[_i];
         task_parts[form_elem.name] = form_elem.value;
       }
-      return window.tasks.add(new Task({
+      window.tasks.add(new Task({
         "title": task_parts['title'],
         "due_date": task_parts['due_date'],
         "description": task_parts['description']
       }));
+      return this.hide_modal();
+    },
+    display_modal: function(raw_task) {
+      var title;
+      this.$el.removeClass('hidden');
+      title = raw_task.title;
+      $('.title', this.form).val(title);
+      if (title.length > 0) {
+        return $('.due-date', this.form).focus();
+      } else {
+        return $('.title', this.form).focus();
+      }
+    },
+    hide_modal: function() {
+      return this.$el.addClass('hidden');
     }
   });
 });

@@ -12,6 +12,8 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, 
             @modal = @$ '#create'
             @form  = @$ '#create-task'
             window.tasks ?= new Tasks
+            @on "display", @display_modal
+            @on "hide", @hide_modal
 
         submit: (e) ->
             e.preventDefault()
@@ -27,5 +29,19 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, 
                 "due_date"    : task_parts['due_date']
                 "description" : task_parts['description']
             # Close the task create window
+            @hide_modal()
+
+        display_modal: (raw_task) ->
+            @$el.removeClass 'hidden'
+            title = raw_task.title
+            $('.title', @form).val title
+
+            if (title.length > 0)
+                $('.due-date', @form).focus()
+            else
+                $('.title', @form).focus()
+
+        hide_modal: ->
+            @$el.addClass 'hidden'
     )
 )

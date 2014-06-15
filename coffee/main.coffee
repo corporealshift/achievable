@@ -11,24 +11,15 @@ require(['jquery', 'underscore', 'backbone', 'models/Task', 'views/QuickCreate',
     QuickCreate = require 'views/QuickCreate'
     CreateTask = require 'views/CreateModal'
 
-    quick_create = new QuickCreate()
-    task = new Task()
-    createModal = new CreateTask()
+    create_modal = new CreateTask()
 
-    task.set 'title', 'test task'
-    console.log task
+    quick_create = new QuickCreate
+        create_modal: create_modal
 
     quick_create_index = 0
     selected_task = null
 
-    window.show_create_modal = ->
-        $('#create-overlay').removeClass 'hidden'
-        title = $('#quick-create input[type=text]').val()
-        $('#create-overlay #create-task .title').val(title)
-        if (title.length > 0)
-            $('#create-overlay #create-task .due-date').focus()
-        else
-            $('#create-overlay #create-task .title').focus()
+
 
     show_task_overlay = (original_task) ->
         new_task = original_task.clone()

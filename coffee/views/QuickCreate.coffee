@@ -13,6 +13,10 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, 
             "mouseover .options a"     : "hover_option"
             "click a.create"           : "quick_create"
 
+        initialize: (options) ->
+            @create_modal = options.create_modal
+
+
         stop_arrows: (e) ->
             e.preventDefault() if (e.which == 40 or e.which == 38)
 
@@ -47,7 +51,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, 
         option_selected: (e) ->
             e.preventDefault();
             if ($(e.target).is('.create-with-options'))
-                window.show_create_modal()
+                @create_modal.trigger 'display', title: @$('input[type=text]').val()
 
         select_next_option: ->
             @select_option ((opt) -> opt.first()), ((sel) -> sel.next())

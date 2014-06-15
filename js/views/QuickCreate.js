@@ -13,6 +13,9 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], func
       "mouseover .options a": "hover_option",
       "click a.create": "quick_create"
     },
+    initialize: function(options) {
+      return this.create_modal = options.create_modal;
+    },
     stop_arrows: function(e) {
       if (e.which === 40 || e.which === 38) {
         return e.preventDefault();
@@ -59,7 +62,9 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], func
     option_selected: function(e) {
       e.preventDefault();
       if ($(e.target).is('.create-with-options')) {
-        return window.show_create_modal();
+        return this.create_modal.trigger('display', {
+          title: this.$('input[type=text]').val()
+        });
       }
     },
     select_next_option: function() {
