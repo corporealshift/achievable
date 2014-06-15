@@ -14,11 +14,18 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], func
       return window.tasks != null ? window.tasks : window.tasks = new Tasks;
     },
     submit: function(e) {
-      var form_data;
+      var form_data, form_elem, task_parts, _i, _len;
       e.preventDefault();
       form_data = this.form.serializeArray();
+      task_parts = [];
+      for (_i = 0, _len = form_data.length; _i < _len; _i++) {
+        form_elem = form_data[_i];
+        task_parts[form_elem.name] = form_elem.value;
+      }
       return window.tasks.add(new Task({
-        "title": form_data[0].value
+        "title": task_parts['title'],
+        "due_date": task_parts['due_date'],
+        "description": task_parts['description']
       }));
     }
   });
