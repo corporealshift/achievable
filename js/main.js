@@ -8,11 +8,17 @@ require.config({
   }
 });
 
-require(['jquery', 'underscore', 'backbone', 'models/Task', 'views/QuickCreate', 'views/CreateModal'], function($, _, Backbone) {
-  var CreateTask, QuickCreate, Task, create_modal, quick_create, quick_create_index, selected_task, show_task_detail_section, show_task_overlay;
+require(['jquery', 'underscore', 'backbone', 'views/Tasks', 'models/Task', 'models/Tasks', 'views/QuickCreate', 'views/CreateModal'], function($, _, Backbone) {
+  var CreateTask, QuickCreate, Task, TaskArray, Tasks, create_modal, quick_create, quick_create_index, selected_task, show_task_detail_section, show_task_overlay, tasks_view;
+  TaskArray = require('models/Tasks');
+  Tasks = require('views/Tasks');
   Task = require('models/Task');
   QuickCreate = require('views/QuickCreate');
   CreateTask = require('views/CreateModal');
+  window.tasks = new TaskArray();
+  tasks_view = new Tasks({
+    tasks: window.tasks
+  });
   create_modal = new CreateTask();
   quick_create = new QuickCreate({
     create_modal: create_modal
@@ -24,7 +30,6 @@ require(['jquery', 'underscore', 'backbone', 'models/Task', 'views/QuickCreate',
     new_task = original_task.clone();
     $('#overlay .selected-elem').html(new_task);
     $('#overlay .selected-elem').css(original_task.offset());
-    console.log(original_task);
     $('#overlay').removeClass('hidden');
     return $('.modal').css({
       top: original_task.offset().top + (original_task[0].offsetHeight / 2) - 75,

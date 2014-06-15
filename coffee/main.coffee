@@ -6,27 +6,34 @@ require.config(
         'backbone'   : 'components/backbone/backbone'
 )
 
-require(['jquery', 'underscore', 'backbone', 'models/Task', 'views/QuickCreate', 'views/CreateModal'], ($, _, Backbone) ->
-    Task = require 'models/Task'
+require(['jquery',
+        'underscore',
+        'backbone',
+        'views/Tasks',
+        'models/Task',
+        'models/Tasks',
+        'views/QuickCreate',
+        'views/CreateModal'], ($, _, Backbone) ->
+    TaskArray   = require 'models/Tasks'
+    Tasks       = require 'views/Tasks'
+    Task        = require 'models/Task'
     QuickCreate = require 'views/QuickCreate'
-    CreateTask = require 'views/CreateModal'
+    CreateTask  = require 'views/CreateModal'
+    window.tasks = new TaskArray()
 
+    tasks_view   = new Tasks
+        tasks: window.tasks
     create_modal = new CreateTask()
-
     quick_create = new QuickCreate
         create_modal: create_modal
 
     quick_create_index = 0
     selected_task = null
 
-
-
     show_task_overlay = (original_task) ->
         new_task = original_task.clone()
         $('#overlay .selected-elem').html new_task
         $('#overlay .selected-elem').css original_task.offset()
-        console.log original_task
-
         $('#overlay').removeClass 'hidden'
 
         # modal top should be 75px above the middle of the task
