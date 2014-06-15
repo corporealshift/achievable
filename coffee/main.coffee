@@ -23,6 +23,7 @@ require(['jquery',
 
     tasks_view   = new Tasks
         tasks: window.tasks
+
     create_modal = new CreateTask()
     quick_create = new QuickCreate
         create_modal: create_modal
