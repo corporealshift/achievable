@@ -4,7 +4,8 @@ require.config({
   paths: {
     'jquery': 'components/jquery/dist/jquery.min',
     'underscore': 'components/underscore/underscore',
-    'backbone': 'components/backbone/backbone'
+    'backbone': 'components/backbone/backbone',
+    'hbs': 'components/handlebars/hbs'
   }
 });
 

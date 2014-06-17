@@ -8,7 +8,8 @@
   "dependencies": {
     "requirejs" : "git://github.com/jrburke/requirejs-bower.git",
     "jquery"    : "git://github.com/jquery/jquery.git",
-    "backbone"  : "git://github.com/jashkenas/backbone.git"
+    "backbone"  : "git://github.com/jashkenas/backbone.git",
+    "handlebars": "git://github.com/SlexAxton/require-handlebars-plugin.git"
   },
   "license": "MIT",
   "private": true,
