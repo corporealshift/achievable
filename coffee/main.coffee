@@ -30,10 +30,13 @@ require(['jquery',
         create_modal: create_modal
 
     quick_create_index = 0
-    selected_task = null
+    window.selected_task = null
 
-    show_task_overlay = (original_task) ->
+    window.show_task_overlay = (original_task) ->
         new_task = original_task.clone()
+
+        new_task.find('.menu, .actions').remove()
+
         $('#overlay .selected-elem').html new_task
         $('#overlay .selected-elem').css original_task.offset()
         $('#overlay').removeClass 'hidden'
@@ -59,7 +62,7 @@ require(['jquery',
 
             if (!$(e.target).is('.actions'))
                 $('#menu').addClass 'hidden'
-                selected_task = null
+                window.selected_task = null
 
             if ($(e.target).closest('#notifications-window, #notifications').length == 0)
                 $('#notifications-window').addClass 'hidden'
@@ -71,21 +74,6 @@ require(['jquery',
         $('#create-overlay').on 'click', (e) ->
             if (e.target == this)
                 $('#create-overlay').addClass 'hidden'
-
-
-        # Task Events
-        $('.actions').on 'click', (e) ->
-            menu = $('#menu')
-            e.preventDefault()
-            selected_task = $(this).parent()
-            menu.removeClass 'hidden'
-            menu.css
-                top: e.pageY - 5
-                left: e.pageX + 15
-
-        $('#menu').on 'click', 'a', (e) ->
-            e.preventDefault()
-            show_task_overlay(selected_task)
 
         $('.sections a').on 'click', (e) ->
             e.preventDefault()

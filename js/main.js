@@ -10,7 +10,7 @@ require.config({
 });
 
 require(['jquery', 'underscore', 'backbone', 'views/Tasks', 'models/Task', 'models/Tasks', 'views/QuickCreate', 'views/CreateModal'], function($, _, Backbone) {
-  var CreateTask, QuickCreate, Task, TaskArray, Tasks, create_modal, quick_create, quick_create_index, selected_task, show_task_detail_section, show_task_overlay, tasks_view;
+  var CreateTask, QuickCreate, Task, TaskArray, Tasks, create_modal, quick_create, quick_create_index, show_task_detail_section, tasks_view;
   TaskArray = require('models/Tasks');
   Tasks = require('views/Tasks');
   Task = require('models/Task');
@@ -25,10 +25,11 @@ require(['jquery', 'underscore', 'backbone', 'views/Tasks', 'models/Task', 'mode
     create_modal: create_modal
   });
   quick_create_index = 0;
-  selected_task = null;
-  show_task_overlay = function(original_task) {
+  window.selected_task = null;
+  window.show_task_overlay = function(original_task) {
     var new_task;
     new_task = original_task.clone();
+    new_task.find('.menu, .actions').remove();
     $('#overlay .selected-elem').html(new_task);
     $('#overlay .selected-elem').css(original_task.offset());
     $('#overlay').removeClass('hidden');
@@ -49,7 +50,7 @@ require(['jquery', 'underscore', 'backbone', 'views/Tasks', 'models/Task', 'mode
       $('#quick-create .options').addClass('hidden');
       if (!$(e.target).is('.actions')) {
         $('#menu').addClass('hidden');
-        selected_task = null;
+        window.selected_task = null;
       }
       if ($(e.target).closest('#notifications-window, #notifications').length === 0) {
         return $('#notifications-window').addClass('hidden');
@@ -64,21 +65,6 @@ require(['jquery', 'underscore', 'backbone', 'views/Tasks', 'models/Task', 'mode
       if (e.target === this) {
         return $('#create-overlay').addClass('hidden');
       }
-    });
-    $('.actions').on('click', function(e) {
-      var menu;
-      menu = $('#menu');
-      e.preventDefault();
-      selected_task = $(this).parent();
-      menu.removeClass('hidden');
-      return menu.css({
-        top: e.pageY - 5,
-        left: e.pageX + 15
-      });
-    });
-    $('#menu').on('click', 'a', function(e) {
-      e.preventDefault();
-      return show_task_overlay(selected_task);
     });
     $('.sections a').on('click', function(e) {
       var classes;

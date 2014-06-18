@@ -51,14 +51,15 @@ a:hover {
 
 /* line 81, ../scss/global.scss */
 h1, h2 {
-  color: #c0c9cf;
+  color: #b6bfc5;
   text-align: right;
   padding-right: 1rem;
   padding-top: 1rem;
   font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-/* line 89, ../scss/global.scss */
+/* line 90, ../scss/global.scss */
 .overlay, .create-overlay {
   position: fixed;
   width: 100%;
@@ -67,15 +68,15 @@ h1, h2 {
   z-index: 2;
   top: 0;
 }
-/* line 97, ../scss/global.scss */
+/* line 98, ../scss/global.scss */
 .overlay .selected-elem, .create-overlay .selected-elem {
   position: absolute;
 }
-/* line 100, ../scss/global.scss */
+/* line 101, ../scss/global.scss */
 .overlay .selected-elem *, .create-overlay .selected-elem * {
   margin: 0;
 }
-/* line 105, ../scss/global.scss */
+/* line 106, ../scss/global.scss */
 .overlay .modal, .create-overlay .modal {
   position: absolute;
   box-shadow: 0px 0px 4px #000;
@@ -84,7 +85,7 @@ h1, h2 {
   padding: 1rem;
   min-height: 150px;
 }
-/* line 113, ../scss/global.scss */
+/* line 114, ../scss/global.scss */
 .overlay .modal:before, .create-overlay .modal:before {
   display: block;
   position: absolute;
@@ -98,7 +99,7 @@ h1, h2 {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
 }
-/* line 129, ../scss/global.scss */
+/* line 130, ../scss/global.scss */
 .overlay .create, .create-overlay .create {
   position: absolute;
   left: 25%;

@@ -7,7 +7,7 @@ $link: #328cb6;
 $background: #fdfdfd;
 $text_color: #020202;
 $light_text: #777;
-$extra_light_text: #c0c9cf;
+$extra_light_text: #B6BFC5;
 $shadow: rgba(0, 0, 0, 0.3);
 $dark_bg: #999;
 $show_focus: rgb(255, 248, 220);
@@ -84,6 +84,7 @@ h1, h2 {
     padding-right: 1rem;
     padding-top: 1rem;
     font-size: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .overlay, .create-overlay {
