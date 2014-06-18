@@ -437,7 +437,7 @@ h1, h2 {
   background: red;
 }
 /* line 86, ../scss/task.scss */
-.task .remaining[prox="10"] {
+.task .remaining[prox="future"] {
   background: #ccc;
 }
 /* line 92, ../scss/task.scss */

@@ -26,7 +26,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, 
             # Save a new Task into the Tasks array
             window.tasks.add new Task
                 "title"       : task_parts['title']
-                "due_date"    : task_parts['due_date']
+                "due_date"    : new Date(task_parts['due_date'])
                 "description" : task_parts['description']
             # Close the task create window
             @hide_modal()

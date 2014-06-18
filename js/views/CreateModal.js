@@ -28,7 +28,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], func
       }
       window.tasks.add(new Task({
         "title": task_parts['title'],
-        "due_date": task_parts['due_date'],
+        "due_date": new Date(task_parts['due_date']),
         "description": task_parts['description']
       }));
       return this.hide_modal();

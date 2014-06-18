@@ -83,7 +83,7 @@
             background: red;
         }
 
-        &[prox="10"] { // More than 5 days way out in the future
+        &[prox="future"] { // More than 5 days way out in the future
             background: #ccc;
         }
     }
