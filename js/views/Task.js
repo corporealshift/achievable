@@ -4,34 +4,22 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], func
   tpl = require('hbs!tpl/Task');
   return Backbone.View.extend({
     initialize: function(options) {
-      var days_remaining, model_data;
+      var model_data;
       this.model = options.task;
+      this.listenTo(this.model, 'change', this.render);
       console.log("new task view with task data", this.model.toJSON());
       model_data = this.model.toJSON();
       if ((this.model.get('due_date') != null)) {
-        days_remaining = Math.round((this.model.get('due_date') - new Date()) / (1000 * 60 * 60 * 24));
-        model_data.days_remaining = days_remaining;
-        if (days_remaining < 0) {
-          model_data.days_msg = "LATE";
-        }
-        if (days_remaining === 0) {
-          model_data.days_msg = "Today";
-        }
-        if (days_remaining === 1) {
-          model_data.days_msg = "1 Day";
-        }
-        if (days_remaining > 1) {
-          model_data.days_msg = "" + days_remaining + " Days";
-        }
-        if (days_remaining >= 100) {
-          model_data.days_msg = "Far";
-        }
-        if (days_remaining >= 10) {
-          model_data.days_remaining = "future";
-        }
+        model_data = this._days_remaining(this.model, model_data);
       }
       this.setElement(tpl(model_data));
+      if (this.model.get('due_date') == null) {
+        this.hide_remaining();
+      }
       return this.menu = this.$('.menu');
+    },
+    render: function() {
+      return this;
     },
     events: {
       'click .actions': 'show_menu',
@@ -53,8 +41,38 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], func
     hide_menu: function(e) {
       return this.menu.addClass('hidden');
     },
+    hide_remaining: function() {
+      return this.$el.find('.remaining').addClass('hidden');
+    },
+    show_remaining: function() {
+      return this.$el.find('.remaining').removeClass('hidden');
+    },
     menu_hover: function(e) {
       return $(e.target).toggleClass('selected');
+    },
+    _days_remaining: function(model, model_data) {
+      var days_remaining;
+      days_remaining = Math.round((model.get('due_date') - new Date()) / (1000 * 60 * 60 * 24));
+      model_data.days_remaining = days_remaining;
+      if (days_remaining < 0) {
+        model_data.days_msg = "LATE";
+      }
+      if (days_remaining === 0) {
+        model_data.days_msg = "Today";
+      }
+      if (days_remaining === 1) {
+        model_data.days_msg = "1 Day";
+      }
+      if (days_remaining > 1) {
+        model_data.days_msg = "" + days_remaining + " Days";
+      }
+      if (days_remaining >= 100) {
+        model_data.days_msg = "Far";
+      }
+      if (days_remaining >= 10) {
+        model_data.days_remaining = "future";
+      }
+      return model_data;
     }
   });
 });

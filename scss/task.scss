@@ -59,6 +59,10 @@
         float: right;
         clear: right;
         margin-top: 0.6rem;
+
+        &.hidden {
+            display: none;
+        }
     }
 
     .remaining {

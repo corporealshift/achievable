@@ -3,7 +3,6 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
   return Backbone.Model.extend({
     defaults: function() {
       return {
-        due_date: new Date(),
         created: new Date()
       };
     }

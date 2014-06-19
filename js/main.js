@@ -49,7 +49,7 @@ require(['jquery', 'underscore', 'backbone', 'views/Tasks', 'models/Task', 'mode
     $('html').on('click', function(e) {
       $('#quick-create .options').addClass('hidden');
       if (!$(e.target).is('.actions')) {
-        $('#menu').addClass('hidden');
+        $('.menu').addClass('hidden');
         window.selected_task = null;
       }
       if ($(e.target).closest('#notifications-window, #notifications').length === 0) {

@@ -61,7 +61,7 @@ require(['jquery',
             $('#quick-create .options').addClass 'hidden'
 
             if (!$(e.target).is('.actions'))
-                $('#menu').addClass 'hidden'
+                $('.menu').addClass 'hidden'
                 window.selected_task = null
 
             if ($(e.target).closest('#notifications-window, #notifications').length == 0)
