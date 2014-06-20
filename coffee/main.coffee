@@ -53,9 +53,6 @@ require(['jquery',
         $('.section.' + section).toggleClass 'selected'
 
     $ ->
-
-        console.log "doc ready"
-
         # Close menu/overlay events
         $('html').on 'click', (e) ->
             $('#quick-create .options').addClass 'hidden'
@@ -96,13 +93,6 @@ require(['jquery',
             $(this).removeClass 'unread'
             if ($('.unread',$(this).parent()).length == 0)
                 $(this).parent().removeClass 'top-unread'
-
-
-        # Show task details. This should happen when the user clicks "edit" in
-        # the actions menu too
-        $('.task h4').on 'click', (e) ->
-            e.preventDefault();
-            show_task_overlay($(this).parent())
 
         $('.task').on 'dragstart dragend', (e) ->
             $('.task-actions').toggleClass 'invisible'

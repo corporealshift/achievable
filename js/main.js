@@ -45,7 +45,6 @@ require(['jquery', 'underscore', 'backbone', 'views/Tasks', 'models/Task', 'mode
     return $('.section.' + section).toggleClass('selected');
   };
   return $(function() {
-    console.log("doc ready");
     $('html').on('click', function(e) {
       $('#quick-create .options').addClass('hidden');
       if (!$(e.target).is('.actions')) {
@@ -92,10 +91,6 @@ require(['jquery', 'underscore', 'backbone', 'views/Tasks', 'models/Task', 'mode
       if ($('.unread', $(this).parent()).length === 0) {
         return $(this).parent().removeClass('top-unread');
       }
-    });
-    $('.task h4').on('click', function(e) {
-      e.preventDefault();
-      return show_task_overlay($(this).parent());
     });
     $('.task').on('dragstart dragend', function(e) {
       return $('.task-actions').toggleClass('invisible');
