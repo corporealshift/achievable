@@ -94,8 +94,15 @@ require(['jquery',
             if ($('.unread',$(this).parent()).length == 0)
                 $(this).parent().removeClass 'top-unread'
 
-        $('.task').on 'dragstart dragend', (e) ->
+        $('.tasks').on 'dragstart dragend', '.task', (e) ->
             $('.task-actions').toggleClass 'invisible'
+            oe = e.originalEvent
+            oe.dataTransfer.setDragImage(this, -10, -10)
+            oe.dataTransfer.effectAllowed = 'move'
+            oe.dataTransfer.setData('text/html', this.innerHTML)
+
+        $('.tasks').on 'drop', '.task', (e) ->
+            console.log "dropped" # not working
 
         $('.task-actions div').on 'dragenter', (e) ->
             console.log 'drug over action ' + $(this).text()

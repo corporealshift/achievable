@@ -92,8 +92,16 @@ require(['jquery', 'underscore', 'backbone', 'views/Tasks', 'models/Task', 'mode
         return $(this).parent().removeClass('top-unread');
       }
     });
-    $('.task').on('dragstart dragend', function(e) {
-      return $('.task-actions').toggleClass('invisible');
+    $('.tasks').on('dragstart dragend', '.task', function(e) {
+      var oe;
+      $('.task-actions').toggleClass('invisible');
+      oe = e.originalEvent;
+      oe.dataTransfer.setDragImage(this, -10, -10);
+      oe.dataTransfer.effectAllowed = 'move';
+      return oe.dataTransfer.setData('text/html', this.innerHTML);
+    });
+    $('.tasks').on('drop', '.task', function(e) {
+      return console.log("dropped");
     });
     $('.task-actions div').on('dragenter', function(e) {
       console.log('drug over action ' + $(this).text());
