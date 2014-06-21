@@ -112,7 +112,7 @@ require(['jquery', 'underscore', 'backbone', 'd3', 'nvd3', 'views/Tasks', 'model
     $('.task-actions div').on('dragleave', function(e) {
       return $(this).siblings().removeClass('fade-out');
     });
-    return nv.addGraph(function() {
+    nv.addGraph(function() {
       var chart, data;
       data = [
         {
@@ -129,6 +129,45 @@ require(['jquery', 'underscore', 'backbone', 'd3', 'nvd3', 'views/Tasks', 'model
         return d.value;
       }).showLabels(true);
       d3.select("#completed svg").datum(data).transition().duration(1200).call(chart);
+      nv.utils.windowResize(chart.update);
+      return chart;
+    });
+    return nv.addGraph(function() {
+      var chart, data;
+      chart = nv.models.multiBarChart();
+      data = [
+        {
+          key: "Complete",
+          values: [
+            {
+              x: new Date("2014-06-15"),
+              y: 2
+            }, {
+              x: new Date("2014-06-22"),
+              y: 3
+            }
+          ],
+          color: "Lightgreen"
+        }, {
+          key: "Incomplete",
+          values: [
+            {
+              x: new Date("2014-06-15"),
+              y: 1
+            }, {
+              x: new Date("2014-06-22"),
+              y: 4
+            }
+          ],
+          color: "Orange"
+        }
+      ];
+      chart.xAxis.tickFormat(d3.time.format('%x'));
+      chart.yAxis.tickFormat(d3.format(',f'));
+      chart.multibar.stacked(true);
+      chart.showControls(false);
+      d3.select('#weekly svg').datum(data).transition().duration(500).call(chart);
+      nv.utils.windowResize(chart.update);
       return chart;
     });
   });

@@ -137,6 +137,37 @@ require(['jquery',
                 .transition().duration(1200)
                 .call(chart)
 
+            nv.utils.windowResize chart.update
+            chart
+        )
+
+        nv.addGraph( ->
+            chart = nv.models.multiBarChart()
+            data = [{
+                key    : "Complete"
+                values : [{x: new Date("2014-06-15"), y: 2}, {x: new Date("2014-06-22"), y: 3}]
+                color  : "Lightgreen"
+            },{
+                key    : "Incomplete"
+                values : [{x: new Date("2014-06-15"), y: 1}, {x: new Date("2014-06-22"), y: 4}]
+                color  : "Orange"
+            }]
+
+            chart.xAxis
+                .tickFormat(d3.time.format('%x'))
+
+            chart.yAxis
+                .tickFormat(d3.format(',f'))
+
+            chart.multibar.stacked true
+            chart.showControls false
+
+            d3.select('#weekly svg').datum(data)
+                .transition().duration(500)
+                .call(chart)
+
+            nv.utils.windowResize chart.update
+
             chart
         )
 )

@@ -715,7 +715,7 @@ h1, h2 {
 }
 
 /* line 24, ../scss/history.scss */
-#completed {
+#completed, #weekly {
   height: 200px;
   margin: 0 auto;
 }
