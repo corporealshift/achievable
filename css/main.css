@@ -714,6 +714,17 @@ h1, h2 {
   color: #328cb6;
 }
 
+/* line 24, ../scss/history.scss */
+#completed {
+  height: 200px;
+  margin: 0 auto;
+}
+
+/* line 29, ../scss/history.scss */
+.nv-legend-text {
+  cursor: pointer;
+}
+
 /* line 1, ../scss/profile/profile.scss */
 .profile {
   width: 48.9%;

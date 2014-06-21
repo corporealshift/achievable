@@ -5,11 +5,13 @@ require.config({
     'jquery': 'components/jquery/dist/jquery.min',
     'underscore': 'components/underscore/underscore',
     'backbone': 'components/backbone/backbone',
-    'hbs': 'components/handlebars/hbs'
+    'hbs': 'components/handlebars/hbs',
+    'd3': 'components/d3/d3.min',
+    'nvd3': 'components/nvd3/nv.d3.min'
   }
 });
 
-require(['jquery', 'underscore', 'backbone', 'views/Tasks', 'models/Task', 'models/Tasks', 'views/QuickCreate', 'views/CreateModal'], function($, _, Backbone) {
+require(['jquery', 'underscore', 'backbone', 'd3', 'nvd3', 'views/Tasks', 'models/Task', 'models/Tasks', 'views/QuickCreate', 'views/CreateModal'], function($, _, Backbone) {
   var CreateTask, QuickCreate, Task, TaskArray, Tasks, create_modal, quick_create, quick_create_index, show_task_detail_section, tasks_view;
   TaskArray = require('models/Tasks');
   Tasks = require('views/Tasks');
@@ -107,8 +109,27 @@ require(['jquery', 'underscore', 'backbone', 'views/Tasks', 'models/Task', 'mode
       console.log('drug over action ' + $(this).text());
       return $(this).siblings().addClass('fade-out');
     });
-    return $('.task-actions div').on('dragleave', function(e) {
+    $('.task-actions div').on('dragleave', function(e) {
       return $(this).siblings().removeClass('fade-out');
+    });
+    return nv.addGraph(function() {
+      var chart, data;
+      data = [
+        {
+          label: "Complete",
+          value: 7
+        }, {
+          label: "Incomplete",
+          value: 5
+        }
+      ];
+      chart = nv.models.pieChart().x(function(d) {
+        return d.label + " (" + d.value + ")";
+      }).y(function(d) {
+        return d.value;
+      }).showLabels(true);
+      d3.select("#completed svg").datum(data).transition().duration(1200).call(chart);
+      return chart;
     });
   });
 });

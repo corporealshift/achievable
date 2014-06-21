@@ -4,12 +4,16 @@ require.config(
         'jquery'     : 'components/jquery/dist/jquery.min',
         'underscore' : 'components/underscore/underscore',
         'backbone'   : 'components/backbone/backbone',
-        'hbs'        : 'components/handlebars/hbs'
+        'hbs'        : 'components/handlebars/hbs',
+        'd3'         : 'components/d3/d3.min', # @todo make this AMD
+        'nvd3'       : 'components/nvd3/nv.d3.min' # @todo make this AMD
 )
 
 require(['jquery',
         'underscore',
         'backbone',
+        'd3',
+        'nvd3',
         'views/Tasks',
         'models/Task',
         'models/Tasks',
@@ -20,6 +24,8 @@ require(['jquery',
     Task        = require 'models/Task'
     QuickCreate = require 'views/QuickCreate'
     CreateTask  = require 'views/CreateModal'
+    # d3          = require 'd3'
+    # nv          = require 'nvd3'
     window.tasks = new TaskArray()
 
     tasks_view   = new Tasks
@@ -110,4 +116,27 @@ require(['jquery',
 
         $('.task-actions div').on 'dragleave', (e) ->
             $(this).siblings().removeClass 'fade-out'
+
+
+        # CHARTS
+        nv.addGraph( ->
+            data = [{
+                label : "Complete"
+                value : 7
+            },{
+                label : "Incomplete"
+                value : 5
+            }]
+            chart = nv.models.pieChart()
+              .x((d) -> d.label + " (" + d.value + ")")
+              .y((d) -> d.value)
+              .showLabels(true)
+
+            d3.select("#completed svg")
+                .datum(data)
+                .transition().duration(1200)
+                .call(chart)
+
+            chart
+        )
 )
