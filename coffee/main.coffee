@@ -31,7 +31,9 @@ require(['jquery',
     tasks_view   = new Tasks
         tasks: window.tasks
 
-    create_modal = new CreateTask()
+    create_modal = new CreateTask
+        tasks: window.tasks
+
     quick_create = new QuickCreate
         create_modal: create_modal
 
@@ -59,6 +61,7 @@ require(['jquery',
         $('.section.' + section).toggleClass 'selected'
 
     $ ->
+        $('body').append create_modal.$el
         # Close menu/overlay events
         $('html').on 'click', (e) ->
             $('#quick-create .options').addClass 'hidden'
@@ -73,10 +76,6 @@ require(['jquery',
         $('#overlay').on 'click', (e) ->
             if (e.target == this)
                 $('#overlay').addClass 'hidden'
-
-        $('#create-overlay').on 'click', (e) ->
-            if (e.target == this)
-                $('#create-overlay').addClass 'hidden'
 
         $('.sections a').on 'click', (e) ->
             e.preventDefault()

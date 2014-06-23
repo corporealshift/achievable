@@ -1,17 +1,19 @@
-define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, _, Backbone) ->
+define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task', 'hbs!tpl/CreateModal'], ($, _, Backbone) ->
     Tasks = require 'models/Tasks'
-    Task = require 'models/Task'
+    Task  = require 'models/Task'
+    tpl   = require 'hbs!tpl/CreateModal'
 
     Backbone.View.extend(
-        el: "#create-overlay"
 
         events:
             "submit #create-task" : "submit"
+            "click"      : "close"
 
-        initialize: ->
+        initialize: (options) ->
+            @setElement tpl()
             @modal = @$ '#create'
             @form  = @$ '#create-task'
-            window.tasks ?= new Tasks
+            @tasks = options.tasks
             @on "display", @display_modal
             @on "hide", @hide_modal
 
@@ -24,7 +26,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, 
             task_parts[form_elem.name] = form_elem.value for form_elem in form_data
 
             # Save a new Task into the Tasks array
-            window.tasks.add new Task
+            @tasks.add new Task
                 "title"       : task_parts['title']
                 "due_date"    : new Date(task_parts['due_date'])
                 "description" : task_parts['description']
@@ -43,5 +45,8 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, 
 
         hide_modal: ->
             @$el.addClass 'hidden'
+
+        close: (e) ->
+            @$el.addClass 'hidden' if (e.target == @el)
     )
 )

@@ -22,7 +22,9 @@ require(['jquery', 'underscore', 'backbone', 'd3', 'nvd3', 'views/Tasks', 'model
   tasks_view = new Tasks({
     tasks: window.tasks
   });
-  create_modal = new CreateTask();
+  create_modal = new CreateTask({
+    tasks: window.tasks
+  });
   quick_create = new QuickCreate({
     create_modal: create_modal
   });
@@ -47,6 +49,7 @@ require(['jquery', 'underscore', 'backbone', 'd3', 'nvd3', 'views/Tasks', 'model
     return $('.section.' + section).toggleClass('selected');
   };
   return $(function() {
+    $('body').append(create_modal.$el);
     $('html').on('click', function(e) {
       $('#quick-create .options').addClass('hidden');
       if (!$(e.target).is('.actions')) {
@@ -60,11 +63,6 @@ require(['jquery', 'underscore', 'backbone', 'd3', 'nvd3', 'views/Tasks', 'model
     $('#overlay').on('click', function(e) {
       if (e.target === this) {
         return $('#overlay').addClass('hidden');
-      }
-    });
-    $('#create-overlay').on('click', function(e) {
-      if (e.target === this) {
-        return $('#create-overlay').addClass('hidden');
       }
     });
     $('.sections a').on('click', function(e) {
