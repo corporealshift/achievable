@@ -571,6 +571,16 @@ h1, h2 {
   width: 75px;
 }
 /* line 20, ../scss/create-task.scss */
+.create div label.radio {
+  width: inherit;
+  cursor: pointer;
+}
+/* line 24, ../scss/create-task.scss */
+.create div label.radio input {
+  vertical-align: text-bottom;
+  margin-right: 0.4rem;
+}
+/* line 30, ../scss/create-task.scss */
 .create div input, .create div textarea {
   vertical-align: top;
   margin-left: 0.5rem;

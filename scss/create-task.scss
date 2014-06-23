@@ -17,6 +17,16 @@
             width: 75px;
         }
 
+        label.radio {
+            width: inherit;
+            cursor: pointer;
+
+            input {
+                vertical-align: text-bottom;
+                margin-right: 0.4rem;
+            }
+        }
+
         input, textarea {
             vertical-align: top;
             margin-left: 0.5rem;

@@ -1,9 +1,9 @@
 /*
 Syntax error: Undefined variable: "$border_color".
-        on line 23 of /Users/mbp/Documents/apps/achievable/scss/create-task.scss
+        on line 33 of /Users/mbp/Documents/apps/achievable/scss/create-task.scss
 
 Backtrace:
-/Users/mbp/Documents/apps/achievable/scss/create-task.scss:23
+/Users/mbp/Documents/apps/achievable/scss/create-task.scss:33
 /usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/script/variable.rb:49:in `_perform'
 /usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/script/node.rb:40:in `perform'
 /usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/script/list.rb:71:in `block in _perform'
@@ -98,4 +98,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$border_color\".\A         on line 23 of /Users/mbp/Documents/apps/achievable/scss/create-task.scss"; }
+  content: "Syntax error: Undefined variable: \"$border_color\".\A         on line 33 of /Users/mbp/Documents/apps/achievable/scss/create-task.scss"; }

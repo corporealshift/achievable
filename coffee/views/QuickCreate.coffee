@@ -50,7 +50,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, 
 
         option_selected: (e) ->
             e.preventDefault();
-            if ($(e.target).is('.create-with-options'))
+            if ($(e.target).is('.create-with-options') or $(e.target).parent().is('.create-with-options'))
                 @create_modal.trigger 'display', title: @$('input[type=text]').val()
 
         select_next_option: ->

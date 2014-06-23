@@ -61,7 +61,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], func
     },
     option_selected: function(e) {
       e.preventDefault();
-      if ($(e.target).is('.create-with-options')) {
+      if ($(e.target).is('.create-with-options') || $(e.target).parent().is('.create-with-options')) {
         return this.create_modal.trigger('display', {
           title: this.$('input[type=text]').val()
         });

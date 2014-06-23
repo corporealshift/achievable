@@ -14,6 +14,22 @@
                 <label>Description:</label>
                 <textarea name="description" placeholder="Task Description" rows="8" cols="40"></textarea>
             </div>
+            <div>
+                <label>Difficulty:</label>
+                <input type="number" name="difficulty" placeholder="1-10" min="1" max="10" step="1">
+            </div>
+            <div>
+                <label>Repeats:</label>
+                <label class="radio">
+                    <input type="radio" name="repeat" value="weekly" placeholder="Weekly">Weekly
+                </label>
+                <label class="radio">
+                    <input type="radio" name="repeat" value="daily" placeholder="Daily">Daily
+                </label>
+                <label class="radio">
+                    <input type="radio" name="repeat" value="every_other" placeholder="Every Other Day">Every Other Day
+                </label>
+            </div>
             <input type="submit" value="Create Task">
         </form>
     </div>
