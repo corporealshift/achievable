@@ -15,7 +15,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, 
 
         initialize: (options) ->
             @create_modal = options.create_modal
-
+            @tasks        = options.tasks
 
         stop_arrows: (e) ->
             e.preventDefault() if (e.which == 40 or e.which == 38)
@@ -44,8 +44,10 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], ($, 
 
         quick_create: ->
             title = @$('input[type=text]').val()
-            window.tasks ?= new Tasks()
-            window.tasks.add(new Task({title: title}))
+
+            @tasks.add new Task
+                title  : title
+
             @$('input[type=text]').val ''
 
         option_selected: (e) ->

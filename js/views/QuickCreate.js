@@ -14,7 +14,8 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], func
       "click a.create": "quick_create"
     },
     initialize: function(options) {
-      return this.create_modal = options.create_modal;
+      this.create_modal = options.create_modal;
+      return this.tasks = options.tasks;
     },
     stop_arrows: function(e) {
       if (e.which === 40 || e.which === 38) {
@@ -51,10 +52,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task'], func
     quick_create: function() {
       var title;
       title = this.$('input[type=text]').val();
-      if (window.tasks == null) {
-        window.tasks = new Tasks();
-      }
-      window.tasks.add(new Task({
+      this.tasks.add(new Task({
         title: title
       }));
       return this.$('input[type=text]').val('');

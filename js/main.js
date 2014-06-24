@@ -26,7 +26,8 @@ require(['jquery', 'underscore', 'backbone', 'd3', 'nvd3', 'views/Tasks', 'model
     tasks: window.tasks
   });
   quick_create = new QuickCreate({
-    create_modal: create_modal
+    create_modal: create_modal,
+    tasks: window.tasks
   });
   quick_create_index = 0;
   window.selected_task = null;

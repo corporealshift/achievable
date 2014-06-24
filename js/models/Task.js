@@ -3,7 +3,9 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
   return Backbone.Model.extend({
     defaults: function() {
       return {
-        created: new Date()
+        created: new Date(),
+        points: 10,
+        chain: 1
       };
     }
   });

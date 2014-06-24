@@ -569,18 +569,19 @@ h1, h2 {
 .create div label {
   display: inline-block;
   width: 75px;
+  margin-top: 0.2rem;
 }
-/* line 20, ../scss/create-task.scss */
+/* line 21, ../scss/create-task.scss */
 .create div label.radio {
   width: inherit;
   cursor: pointer;
 }
-/* line 24, ../scss/create-task.scss */
+/* line 25, ../scss/create-task.scss */
 .create div label.radio input {
   vertical-align: text-bottom;
   margin-right: 0.4rem;
 }
-/* line 30, ../scss/create-task.scss */
+/* line 31, ../scss/create-task.scss */
 .create div input, .create div textarea {
   vertical-align: top;
   margin-left: 0.5rem;

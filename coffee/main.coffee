@@ -36,6 +36,7 @@ require(['jquery',
 
     quick_create = new QuickCreate
         create_modal: create_modal
+        tasks: window.tasks
 
     quick_create_index = 0
     window.selected_task = null

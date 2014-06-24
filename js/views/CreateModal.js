@@ -29,7 +29,8 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task', 'hbs!
       this.tasks.add(new Task({
         "title": task_parts['title'],
         "due_date": new Date(task_parts['due_date']),
-        "description": task_parts['description']
+        "description": task_parts['description'],
+        "points": 10 + task_parts['difficulty'] * 2
       }));
       return this.hide_modal();
     },
