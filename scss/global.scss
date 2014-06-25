@@ -35,6 +35,30 @@ $show_focus: rgb(255, 248, 220);
     }
 }
 
+@mixin modal {
+    position: absolute;
+    box-shadow: 0px 0px 4px #000;
+    background: $background;
+    min-width: 300px;
+    padding: 1rem;
+    min-height: 150px;
+
+    &:before {
+        display: block;
+        position: absolute;
+        left: -9px;
+        // 75 (which is middle of the element to be pointed at) - 0.5 * 28(the hypotenuse) == 62
+        top: 35px;
+        width: 20px;
+        height: 20px;
+        background: $background;
+        content: " ";
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+    }
+}
+
 body {
     background: $background;
     color: $text_color;
@@ -104,27 +128,7 @@ h1, h2 {
     }
 
     .modal {
-        position: absolute;
-        box-shadow: 0px 0px 4px #000;
-        background: $background;
-        min-width: 300px;
-        padding: 1rem;
-        min-height: 150px;
-
-        &:before {
-            display: block;
-            position: absolute;
-            left: -9px;
-            // 75 (which is middle of the element to be pointed at) - 0.5 * 28(the hypotenuse) == 62
-            top: 62px;
-            width: 20px;
-            height: 20px;
-            background: $background;
-            content: " ";
-            transform: rotate(45deg);
-            -webkit-transform: rotate(45deg);
-            -moz-transform: rotate(45deg);
-        }
+        @include modal;
     }
 
     .create {

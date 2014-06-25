@@ -50,11 +50,6 @@ require(['jquery',
         $('#overlay .selected-elem').css original_task.offset()
         $('#overlay').removeClass 'hidden'
 
-        # modal top should be 75px above the middle of the task
-        $('.modal').css
-            top: original_task.offset().top + (original_task[0].offsetHeight / 2) - 75
-            left: original_task.offset().left + original_task[0].offsetWidth + 15
-
     show_task_detail_section = (section) ->
         $('.sections a').removeClass 'selected'
         $('.sections .' + section).addClass 'selected'

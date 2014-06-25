@@ -37,11 +37,7 @@ require(['jquery', 'underscore', 'backbone', 'd3', 'nvd3', 'views/Tasks', 'model
     new_task.find('.menu, .actions').remove();
     $('#overlay .selected-elem').html(new_task);
     $('#overlay .selected-elem').css(original_task.offset());
-    $('#overlay').removeClass('hidden');
-    return $('.modal').css({
-      top: original_task.offset().top + (original_task[0].offsetHeight / 2) - 75,
-      left: original_task.offset().left + original_task[0].offsetWidth + 15
-    });
+    return $('#overlay').removeClass('hidden');
   };
   show_task_detail_section = function(section) {
     $('.sections a').removeClass('selected');
