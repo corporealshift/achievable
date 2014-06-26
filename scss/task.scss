@@ -1,12 +1,21 @@
+.task-container {
+    float: left;
+    position: relative;
+    margin: 0.05rem;
+}
+
+.task-container.detailed {
+    z-index: 1;
+    box-shadow: 0px 0px 10px 10000px rgba(0,0,0, 0.3);
+    transition: 0.2s box-shadow ease-in-out;
+}
+
 .task {
     background: $background;
     width: 300px;
     height: 100px;
     padding: 0.4rem;
-    margin: 0.05rem;
     border: 1px solid $extra_light_text;
-    float: left;
-    position: relative;
     cursor: move;
     cursor: -webkit-grab;
     cursor: -moz-grab;
@@ -102,19 +111,16 @@
     }
 }
 
-.task-container .task-details {
-    display: none;
-}
-
-.overlay .task-details {
+.task-details {
     @include modal;
     line-height: 1.4rem;
     font-size: 0.9rem;
     padding: 0;
     width: 350px;
     min-height: 160px;
-    display: block;
+    top: 0;
     right: -365px;
+    z-index: 1;
 
     h4 {
         font-size: 0.8rem;

@@ -1,11 +1,9 @@
 /*
 Syntax error: Undefined variable: "$background".
-        on line 2 of /Users/mbp/Documents/apps/achievable/scss/task.scss
-
-1: /Users/mbp/Documents/apps/achievable/scss/task.scss
+        on line 14 of /Users/mbp/Documents/apps/achievable/scss/task.scss
 
 Backtrace:
-/Users/mbp/Documents/apps/achievable/scss/task.scss:2
+/Users/mbp/Documents/apps/achievable/scss/task.scss:14
 /usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/script/variable.rb:49:in `_perform'
 /usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/script/node.rb:40:in `perform'
 /usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:298:in `visit_prop'
@@ -76,4 +74,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$background\".\A         on line 2 of /Users/mbp/Documents/apps/achievable/scss/task.scss\A \A 1: /Users/mbp/Documents/apps/achievable/scss/task.scss"; }
+  content: "Syntax error: Undefined variable: \"$background\".\A         on line 14 of /Users/mbp/Documents/apps/achievable/scss/task.scss"; }
