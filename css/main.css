@@ -176,23 +176,23 @@ h1, h2 {
 /* line 143, ../scss/global.scss */
 * {
   transition: 0.2s -webkit-filter ease-in-out;
+  transition: 0.2s -moz-filter ease-in-out;
+  transition: 0.2s filter ease-in-out;
 }
 
-/* line 149, ../scss/global.scss */
+/* line 153, ../scss/global.scss */
 .overlaid .task-container:not(.detailed),
 .overlaid .trends:not(.detailed),
 .overlaid .activity-stream:not(.detailed) {
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
   filter: blur(5px);
 }
-/* line 158, ../scss/global.scss */
+/* line 160, ../scss/global.scss */
 .overlaid .tasks {
   background: none;
 }
-/* line 161, ../scss/global.scss */
+/* line 163, ../scss/global.scss */
 .overlaid .tasks h1 {
   visibility: hidden;
 }
