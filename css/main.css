@@ -184,9 +184,9 @@ h1, h2 {
 .overlaid .task-container:not(.detailed),
 .overlaid .trends:not(.detailed),
 .overlaid .activity-stream:not(.detailed) {
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  filter: blur(5px);
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(3px);
+  filter: blur(3px);
 }
 /* line 160, ../scss/global.scss */
 .overlaid .tasks {
@@ -383,7 +383,7 @@ h1, h2 {
 /* line 7, ../scss/task.scss */
 .task-container.detailed {
   z-index: 1;
-  box-shadow: 0px 0px 10px 10000px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px 10000px rgba(0, 0, 0, 0.2);
   transition: 0.2s box-shadow ease-in-out;
 }
 
