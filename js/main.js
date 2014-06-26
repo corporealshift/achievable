@@ -12,7 +12,7 @@ require.config({
 });
 
 require(['jquery', 'underscore', 'backbone', 'd3', 'nvd3', 'views/Tasks', 'models/Task', 'models/Tasks', 'views/QuickCreate', 'views/CreateModal'], function($, _, Backbone) {
-  var CreateTask, QuickCreate, Task, TaskArray, Tasks, create_modal, quick_create, quick_create_index, show_task_detail_section, tasks_view;
+  var CreateTask, QuickCreate, Task, TaskArray, Tasks, create_modal, quick_create, quick_create_index, tasks_view;
   TaskArray = require('models/Tasks');
   Tasks = require('views/Tasks');
   Task = require('models/Task');
@@ -39,12 +39,6 @@ require(['jquery', 'underscore', 'backbone', 'd3', 'nvd3', 'views/Tasks', 'model
     $('#overlay .selected-elem').css(original_task.offset());
     return $('#overlay').removeClass('hidden');
   };
-  show_task_detail_section = function(section) {
-    $('.sections a').removeClass('selected');
-    $('.sections .' + section).addClass('selected');
-    $('.section').removeClass('selected');
-    return $('.section.' + section).toggleClass('selected');
-  };
   return $(function() {
     $('body').append(create_modal.$el);
     $('html').on('click', function(e) {
@@ -54,7 +48,12 @@ require(['jquery', 'underscore', 'backbone', 'd3', 'nvd3', 'views/Tasks', 'model
         window.selected_task = null;
       }
       if ($(e.target).closest('#notifications-window, #notifications').length === 0) {
-        return $('#notifications-window').addClass('hidden');
+        $('#notifications-window').addClass('hidden');
+      }
+      if ($(e.target).closest('.task-container.detailed').length === 0) {
+        $('.task-details').addClass('hidden');
+        $('body').removeClass('overlaid');
+        return $('.task-container.detailed').removeClass('detailed');
       }
     });
     $('#overlay').on('click', function(e) {
@@ -62,7 +61,7 @@ require(['jquery', 'underscore', 'backbone', 'd3', 'nvd3', 'views/Tasks', 'model
         return $('#overlay').addClass('hidden');
       }
     });
-    $('.sections a').on('click', function(e) {
+    $('.task-container .sections a').on('click', function(e) {
       var classes;
       e.preventDefault();
       classes = $(this).attr('class');

@@ -23,9 +23,10 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], ($, 
 
         # Task Events
         events:
-            'click .actions' : 'show_menu'
-            'click .menu a'  : 'show_task_details'
-            'click h4'       : 'show_task_details'
+            'click .actions'     : 'show_menu'
+            'click .menu a'      : 'show_task_details'
+            'click h4'           : 'show_task_details'
+            'click .sections a'  : 'select_section'
             'mouseenter .menu a' : 'menu_hover'
             'mouseleave .menu a' : 'menu_hover'
 
@@ -36,8 +37,9 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], ($, 
 
         show_task_details: (e) ->
             e.preventDefault()
+            @$el.addClass 'detailed'
             @hide_menu()
-            window.show_task_overlay @$el
+            @show_task_overlay()
 
         hide_menu: (e) ->
             @menu.addClass 'hidden'
@@ -46,8 +48,24 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], ($, 
 
         show_remaining: -> @$el.find('.remaining').removeClass 'hidden'
 
-
         menu_hover: (e) -> $(e.target).toggleClass 'selected'
+
+        show_task_overlay: ->
+            $('.task-details').addClass 'hidden'
+            $('body').addClass 'overlaid'
+            @$el.find('.task-details').removeClass 'hidden'
+
+
+        select_section: (e) ->
+            e.preventDefault()
+            classes = $(e.target).attr 'class'
+            @show_task_detail_section(classes) if classes.indexOf('selected') < 0
+
+        show_task_detail_section: (section) ->
+            @$('.sections a').removeClass 'selected'
+            @$('.sections .' + section).addClass 'selected'
+            @$('.section').removeClass 'selected'
+            @$('.section.' + section).toggleClass 'selected'
 
         _days_remaining: (model, model_data) ->
             days_remaining = Math.round((model.get('due_date') - new Date()) / (1000*60*60*24))

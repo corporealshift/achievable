@@ -25,6 +25,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], func
       'click .actions': 'show_menu',
       'click .menu a': 'show_task_details',
       'click h4': 'show_task_details',
+      'click .sections a': 'select_section',
       'mouseenter .menu a': 'menu_hover',
       'mouseleave .menu a': 'menu_hover'
     },
@@ -35,8 +36,9 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], func
     },
     show_task_details: function(e) {
       e.preventDefault();
+      this.$el.addClass('detailed');
       this.hide_menu();
-      return window.show_task_overlay(this.$el);
+      return this.show_task_overlay();
     },
     hide_menu: function(e) {
       return this.menu.addClass('hidden');
@@ -49,6 +51,25 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], func
     },
     menu_hover: function(e) {
       return $(e.target).toggleClass('selected');
+    },
+    show_task_overlay: function() {
+      $('.task-details').addClass('hidden');
+      $('body').addClass('overlaid');
+      return this.$el.find('.task-details').removeClass('hidden');
+    },
+    select_section: function(e) {
+      var classes;
+      e.preventDefault();
+      classes = $(e.target).attr('class');
+      if (classes.indexOf('selected') < 0) {
+        return this.show_task_detail_section(classes);
+      }
+    },
+    show_task_detail_section: function(section) {
+      this.$('.sections a').removeClass('selected');
+      this.$('.sections .' + section).addClass('selected');
+      this.$('.section').removeClass('selected');
+      return this.$('.section.' + section).toggleClass('selected');
     },
     _days_remaining: function(model, model_data) {
       var days_remaining;

@@ -50,12 +50,6 @@ require(['jquery',
         $('#overlay .selected-elem').css original_task.offset()
         $('#overlay').removeClass 'hidden'
 
-    show_task_detail_section = (section) ->
-        $('.sections a').removeClass 'selected'
-        $('.sections .' + section).addClass 'selected'
-        $('.section').removeClass 'selected'
-        $('.section.' + section).toggleClass 'selected'
-
     $ ->
         $('body').append create_modal.$el
         # Close menu/overlay events
@@ -69,11 +63,16 @@ require(['jquery',
             if ($(e.target).closest('#notifications-window, #notifications').length == 0)
                 $('#notifications-window').addClass 'hidden'
 
+            if ($(e.target).closest('.task-container.detailed').length == 0)
+                $('.task-details').addClass 'hidden'
+                $('body').removeClass 'overlaid'
+                $('.task-container.detailed').removeClass 'detailed'
+
         $('#overlay').on 'click', (e) ->
             if (e.target == this)
                 $('#overlay').addClass 'hidden'
 
-        $('.sections a').on 'click', (e) ->
+        $('.task-container .sections a').on 'click', (e) ->
             e.preventDefault()
             classes = $(this).attr 'class'
             show_task_detail_section(classes) if classes.indexOf('selected') < 0
