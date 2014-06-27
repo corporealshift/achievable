@@ -30,7 +30,9 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task', 'hbs!
         "title": task_parts['title'],
         "due_date": new Date(task_parts['due_date']),
         "description": task_parts['description'],
-        "points": 10 + task_parts['difficulty'] * 2
+        "points": 10 + task_parts['difficulty'] * 2,
+        "base_points": 10 + task_parts['difficulty'] * 2,
+        chain: 20
       }));
       return this.hide_modal();
     },

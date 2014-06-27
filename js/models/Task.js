@@ -4,9 +4,14 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
     defaults: function() {
       return {
         created: new Date(),
+        modified: new Date(),
         points: 10,
+        base_points: 10,
         chain: 1
       };
+    },
+    chain_points: function() {
+      return Math.floor(this.get('chain') / 7);
     }
   });
 });

@@ -31,6 +31,8 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task', 'hbs!
                 "due_date"    : new Date(task_parts['due_date'])
                 "description" : task_parts['description']
                 "points"      : 10 + task_parts['difficulty'] * 2
+                "base_points" : 10 + task_parts['difficulty'] * 2
+                chain: 20
             # Close the task create window
             @hide_modal()
 

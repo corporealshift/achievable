@@ -12,6 +12,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], func
       if ((this.model.get('due_date') != null)) {
         model_data = this._days_remaining(this.model, model_data);
       }
+      model_data.chain_points = this.model.chain_points();
       this.setElement(tpl(model_data));
       if (this.model.get('due_date') == null) {
         this.hide_remaining();

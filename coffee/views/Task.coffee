@@ -12,6 +12,8 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], ($, 
             if (@model.get('due_date')?)
                 model_data = @_days_remaining(@model, model_data)
 
+            model_data.chain_points = @model.chain_points()
+
             @setElement tpl model_data
 
             @hide_remaining() if !@model.get('due_date')?
