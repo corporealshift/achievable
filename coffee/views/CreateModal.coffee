@@ -25,14 +25,18 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task', 'hbs!
             # transpose form data array into useful data
             task_parts[form_elem.name] = form_elem.value for form_elem in form_data
 
-            # Save a new Task into the Tasks array
-            @tasks.add new Task
+            task = new Task
                 "title"       : task_parts['title']
-                "due_date"    : new Date(task_parts['due_date'])
                 "description" : task_parts['description']
                 "points"      : 10 + task_parts['difficulty'] * 2
                 "base_points" : 10 + task_parts['difficulty'] * 2
                 chain: 20
+            # Save a new Task into the Tasks array
+            if (task_parts['due_date'] != "")
+                task.set "due_date", new Date(task_parts['due_date'])
+
+            @tasks.add task
+
             # Close the task create window
             @hide_modal()
 

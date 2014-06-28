@@ -18,7 +18,7 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task', 'hbs!
       return this.on("hide", this.hide_modal);
     },
     submit: function(e) {
-      var form_data, form_elem, task_parts, _i, _len;
+      var form_data, form_elem, task, task_parts, _i, _len;
       e.preventDefault();
       form_data = this.form.serializeArray();
       task_parts = [];
@@ -26,14 +26,17 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task', 'hbs!
         form_elem = form_data[_i];
         task_parts[form_elem.name] = form_elem.value;
       }
-      this.tasks.add(new Task({
+      task = new Task({
         "title": task_parts['title'],
-        "due_date": new Date(task_parts['due_date']),
         "description": task_parts['description'],
         "points": 10 + task_parts['difficulty'] * 2,
         "base_points": 10 + task_parts['difficulty'] * 2,
         chain: 20
-      }));
+      });
+      if (task_parts['due_date'] !== "") {
+        task.set("due_date", new Date(task_parts['due_date']));
+      }
+      this.tasks.add(task);
       return this.hide_modal();
     },
     display_modal: function(raw_task) {
