@@ -3,7 +3,7 @@
         <h4><a href="">{{title}}</a></h4>
         <span class="remaining" prox="{{days_remaining}}">{{days_msg}}</span>
         <span class="description-short">
-            {{description}}
+            {{short_description}}
         </span>
         <span class="points">{{points}}</span>
         <span class="chain-length">{{chain}}</span>
@@ -28,7 +28,7 @@
         </div>
         <div class="section details selected">
             <h4>Task Details</h4>
-            <div class="group">
+            <div class="group due-date">
                 <label>Due Date:</label>
                 <span>{{due_date}}</span>
             </div>
@@ -39,6 +39,10 @@
             <div class="group">
                 <label>Last Modified:</label>
                 <span>{{modified}}</span>
+            </div>
+            <div class="description group">
+                <label>Description:</label>
+                <div>{{description}}</div>
             </div>
         </div>
         <div class="section points">

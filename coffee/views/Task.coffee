@@ -11,12 +11,24 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], ($, 
             model_data = @model.toJSON()
             if (@model.get('due_date')?)
                 model_data = @_days_remaining(@model, model_data)
+                due_date = @model.get 'due_date'
+                model_data.due_date = [due_date.getFullYear(), due_date.getMonth() + 1, due_date.getUTCDate()].join('/')
 
             model_data.chain_points = @model.chain_points()
+            created = @model.get 'created'
+            model_data.created = [created.getFullYear(), created.getMonth() + 1, created.getDate()].join('/')
+
+            modified = @model.get 'modified'
+            model_data.modified = [modified.getFullYear(), modified.getMonth() + 1, modified.getDate()].join('/')
+
+            if @model.get('description').length > 75
+                model_data.short_description = @model.get('description').substr(0, 75) + "..."
+            else
+                model_data.short_description = @model.get 'description'
 
             @setElement tpl model_data
 
-            @hide_remaining() if !@model.get('due_date')?
+            @hide_duedate() if !@model.get('due_date')?
 
             @menu = @$ '.menu'
 
@@ -46,9 +58,13 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], ($, 
         hide_menu: (e) ->
             @menu.addClass 'hidden'
 
-        hide_remaining: -> @$el.find('.remaining').addClass 'hidden'
+        hide_duedate: ->
+            @$el.find('.remaining').addClass 'hidden'
+            @$el.find('.due-date').addClass 'hidden'
 
-        show_remaining: -> @$el.find('.remaining').removeClass 'hidden'
+        show_duedate: ->
+            @$el.find('.remaining').removeClass 'hidden'
+            @$el.find('.due-date').removeClass 'hidden'
 
         menu_hover: (e) -> $(e.target).toggleClass 'selected'
 

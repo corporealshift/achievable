@@ -541,13 +541,14 @@ h1, h2 {
 /* line 145, ../scss/task.scss */
 .task-details .section {
   padding: 1rem;
+  padding-right: 60px;
   display: none;
 }
-/* line 149, ../scss/task.scss */
+/* line 150, ../scss/task.scss */
 .task-details .section.selected {
   display: block;
 }
-/* line 154, ../scss/task.scss */
+/* line 155, ../scss/task.scss */
 .task-details .sections {
   position: absolute;
   right: 0;
@@ -556,28 +557,40 @@ h1, h2 {
   width: 50px;
   background: #999999;
 }
-/* line 162, ../scss/task.scss */
+/* line 163, ../scss/task.scss */
 .task-details .sections a {
   display: block;
   text-align: center;
   color: #dedede;
   line-height: 2.5rem;
 }
-/* line 168, ../scss/task.scss */
+/* line 169, ../scss/task.scss */
 .task-details .sections a.selected {
   background: #fdfdfd;
   color: #020202;
 }
-/* line 172, ../scss/task.scss */
+/* line 173, ../scss/task.scss */
 .task-details .sections a.selected:hover {
   background: #fdfdfd;
   color: #020202;
 }
-/* line 178, ../scss/task.scss */
+/* line 179, ../scss/task.scss */
 .task-details .sections a:hover {
   background: #b6bfc5;
   color: #020202;
   text-decoration: none;
+}
+/* line 188, ../scss/task.scss */
+.task-details .description label {
+  font-weight: normal;
+}
+/* line 192, ../scss/task.scss */
+.task-details .description div {
+  line-height: 1rem;
+}
+/* line 196, ../scss/task.scss */
+.task-details .description div, .task-details .description label {
+  float: left;
 }
 
 /* line 1, ../scss/menu.scss */
