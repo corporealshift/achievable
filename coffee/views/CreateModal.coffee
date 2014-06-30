@@ -26,14 +26,18 @@ define(['jquery', 'underscore', 'backbone', 'models/Tasks', 'models/Task', 'hbs!
             task_parts[form_elem.name] = form_elem.value for form_elem in form_data
 
             task = new Task
-                "title"       : task_parts['title']
-                "description" : task_parts['description']
-                "points"      : 10 + task_parts['difficulty'] * 2
-                "base_points" : 10 + task_parts['difficulty'] * 2
-                chain: 20
+                title       : task_parts['title']
+                description : task_parts['description']
+                points      :
+                    base       : 10 + task_parts['difficulty'] * 2
+                    total      : 10 + task_parts['difficulty'] * 2
+                    motivation : 0
+                    chain      : 0
             # Save a new Task into the Tasks array
             if (task_parts['due_date'] != "")
-                task.set "due_date", new Date(task_parts['due_date'])
+                offset = new Date().getTimezoneOffset() / 60
+                datestring = task_parts['due_date'] + "T00:00:00-0#{offset}00"
+                task.set "due_date", new Date(datestring)
 
             @tasks.add task
 

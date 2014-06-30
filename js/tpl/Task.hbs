@@ -5,7 +5,7 @@
         <span class="description-short">
             {{short_description}}
         </span>
-        <span class="points">{{points}}</span>
+        <span class="points">{{points.total}}</span>
         <span class="chain-length">{{chain}}</span>
         <a href="#" class="actions">M</a>
         <div class="attachments">
@@ -49,19 +49,19 @@
             <h4>Points</h4>
             <div class="group">
                 <label>Base Points:</label>
-                <span>{{base_points}}</span>
+                <span>{{points.base}}</span>
             </div>
             <div class="group">
                 <label>Motivation Points:</label>
-                <span>25</span>
+                <span>{{points.motivation}}</span>
             </div>
             <div class="group">
                 <label>Chain Points:</label>
-                <span>{{chain_points}}</span>
+                <span>{{points.chain}}</span>
             </div>
             <div class="group">
                 <label>Total Points:</label>
-                <span>{{points}}</span>
+                <span>{{points.total}}</span>
             </div>
         </div>
     </div>

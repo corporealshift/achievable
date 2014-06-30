@@ -4,27 +4,10 @@ define(['jquery', 'underscore', 'backbone', 'models/Task', 'hbs!tpl/Task'], func
   tpl = require('hbs!tpl/Task');
   return Backbone.View.extend({
     initialize: function(options) {
-      var created, due_date, model_data, modified;
       this.model = options.task;
       this.listenTo(this.model, 'change', this.render);
       console.log("new task view with task data", this.model.toJSON());
-      model_data = this.model.toJSON();
-      if ((this.model.get('due_date') != null)) {
-        model_data = this._days_remaining(this.model, model_data);
-        due_date = this.model.get('due_date');
-        model_data.due_date = [due_date.getFullYear(), due_date.getMonth() + 1, due_date.getUTCDate()].join('/');
-      }
-      model_data.chain_points = this.model.chain_points();
-      created = this.model.get('created');
-      model_data.created = [created.getFullYear(), created.getMonth() + 1, created.getDate()].join('/');
-      modified = this.model.get('modified');
-      model_data.modified = [modified.getFullYear(), modified.getMonth() + 1, modified.getDate()].join('/');
-      if (this.model.get('description').length > 75) {
-        model_data.short_description = this.model.get('description').substr(0, 75) + "...";
-      } else {
-        model_data.short_description = this.model.get('description');
-      }
-      this.setElement(tpl(model_data));
+      this.setElement(tpl(this.model.toJSON()));
       if (this.model.get('due_date') == null) {
         this.hide_duedate();
       }
