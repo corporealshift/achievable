@@ -3,3 +3,6 @@
 js/components
 server/logs
 server/target
+server/project/target
+.idea
+.idea_modules
