@@ -12,7 +12,7 @@ import play.api.mvc.BodyParsers._
 import play.api.libs.json.Json
 import play.api.libs.json.Json._
 
-object Tasks extends Controller {
+object TaskController extends Controller {
 
   //create an instance of the table
   val tasks = TableQuery[TaskTable]
@@ -21,13 +21,17 @@ object Tasks extends Controller {
   implicit val taskFormat = Json.format[Task]
 
   def index(id: Long) = DBAction { implicit rs =>
-    Ok(toJson(tasks.list))
+    Ok(toJson(tasks.filter{_.id == id}.firstOption))
   }
 
 //  def insert = DBAction { implicit rs =>
-//    val cat = catForm.bindFromRequest.get
-//    cats.insert(cat)
-//
-//    Redirect(routes.Application.index)
+//    val task = ???
 //  }
+
+  //  def insert = DBAction { implicit rs =>
+  //    val cat = catForm.bindFromRequest.get
+  //    cats.insert(cat)
+  //
+  //    Redirect(routes.Application.index)
+  //  }
 }
