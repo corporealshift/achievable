@@ -18,3 +18,4 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Get all tasks
 GET     /tasks/:id                  controllers.Tasks.index(id: Long)
+POST    /task                       controllers.TaskController.insert
