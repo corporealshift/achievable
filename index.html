@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app>
 <head>
     <title>Achievable V1</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -11,12 +11,12 @@
         <div class="header">
             <div class="total-points left"><a href="index.html">1025</a></div>
             <nav></nav>
-            <form id="quick-create" ng-app class="left" action="">
+            <form id="quick-create" ng-submit="create()" ng-controller="QuickCreate" class="left" action="">
                 <input type="text" placeholder="Create a task..." ng-model="title" name="task-title">
-                <div class="demo options" ng-show="title.length>0">
-                    <a href="" class="create">Create Task:<span class="user-value">{{title}}</span></a>
-                    <a href="">Create and go to task:<span class="user-value">{{title}}</span></a>
-                    <a href="" class="create-with-options">Create with options:<span class="user-value">{{title}}</span></a>
+                <div class="demo options" ng-show="title.length">
+                    <a href="" ng-click="create()">Create Task:<span class="user-value">{{title}}</span></a>
+                    <a href="" ng-click="create()">Create and go to task:<span class="user-value">{{title}}</span></a>
+                    <a href="" ng-click="adv_create()">Create with options:<span class="user-value">{{title}}</span></a>
                 </div>
             </form>
             <nav class="configuration right">
