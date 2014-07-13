@@ -4,3 +4,4 @@ QuickCreate = ($scope) ->
 
     $scope.adv_create = ->
         console.log "adv create new task"
+        this.$parent.adv_create = true

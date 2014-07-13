@@ -6,6 +6,7 @@ QuickCreate = function($scope) {
     return console.log("create new task");
   };
   return $scope.adv_create = function() {
-    return console.log("adv create new task");
+    console.log("adv create new task");
+    return this.$parent.adv_create = true;
   };
 };
