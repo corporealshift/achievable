@@ -35,8 +35,12 @@ object TaskController extends Controller {
       "title" -> text(),
       "description" -> optional(text),
       "due_date" -> optional(sqlDate),
+      "complete" -> boolean,
       "points" -> number(),
-      "repeats" -> optional(text)
+      "repeat_days" -> optional(text),
+      "repeat_frequency" -> optional(text),
+      "repeat_until" -> optional(sqlDate),
+      "chain" -> number()
     )(Task.apply)(Task.unapply)
   )
 
