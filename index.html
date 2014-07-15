@@ -32,14 +32,14 @@
     <div class="main group">
         <div class="tasks" id="tasks">
             <h1>Your Tasks</h1>
-            <div class="task hidden" id="task-tpl" draggable="true">
-                <h4><a href="">Clean off desk</a></h4>
+            <div class="task" ng-repeat="task in tasks" id="task-tpl" draggable="true">
+                <h4><a href="">{{task.title}}</a></h4>
                 <span class="remaining" prox="3">3 days</span>
                 <span class="description-short">
-                    Stuff keeps piling up, get things clean!
+                    {{task.description}}
                 </span>
-                <span class="points">15</span>
-                <span class="chain-length">5</span>
+                <span class="points">{{task.points}}</span>
+                <span class="chain-length">{{task.chain}}</span>
                 <a href="#" class="actions">M</a>
                 <div class="attachments">
                     <img src="" alt="" />
@@ -103,36 +103,36 @@
             <a href="#">Clean off desk</a>
         </div>
     </div>
-    <div id="create-overlay" class="overlay" ng-click="adv_create=false" ng-show="adv_create">
+    <div id="create-overlay" class="overlay" ng-controller="CreateTask" ng-show="adv_create">
         <div id="create" class="create">
             <h3>Create Task</h3>
-            <form id="create-task" action="" method="post">
+            <form ng-submit="add_task()">
                 <div>
                     <label>Title:</label>
-                    <input placeholder="Task title" type="text" class="title" name="title" value="">
+                    <input placeholder="Task title" type="text" class="title" ng-model="title">
                 </div>
                 <div>
                     <label>Due Date:</label>
-                    <input type="date" name="due_date" class="due-date" value="" placeholder="Due Date">
+                    <input placeholder="Due Date" type="date" class="due-date" ng-model="due_date">
                 </div>
                 <div>
                     <label>Description:</label>
-                    <textarea name="description" placeholder="Task Description" rows="8" cols="40"></textarea>
+                    <textarea placeholder="Task Description" rows="8" cols="40" ng-model="description"></textarea>
                 </div>
                 <div>
                     <label>Difficulty:</label>
-                    <input type="number" name="difficulty" placeholder="1-10" min="1" max="10" step="1">
+                    <input type="number" name="difficulty" placeholder="1-10" min="1" max="10" step="1" ng-model="difficulty">
                 </div>
                 <div>
                     <label>Repeats:</label>
                     <label class="radio">
-                        <input type="radio" name="repeat" value="weekly" placeholder="Weekly">Weekly
+                        <input type="radio" name="repeat" value="weekly" ng-model="repeat_frequency" placeholder="Weekly">Weekly
                     </label>
                     <label class="radio">
-                        <input type="radio" name="repeat" value="daily" placeholder="Daily">Daily
+                        <input type="radio" name="repeat" value="daily" ng-model="repeat_frequency" placeholder="Daily">Daily
                     </label>
                     <label class="radio">
-                        <input type="radio" name="repeat" value="every_other" placeholder="Every Other Day">Every Other Day
+                        <input type="radio" name="repeat" value="every_other" ng-model="repeat_frequency" placeholder="Every Other Day">Every Other Day
                     </label>
                 </div>
                 <input type="submit" value="Create Task">
