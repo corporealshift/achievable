@@ -30,21 +30,75 @@
         </div>
     </div>
     <div class="main group">
-        <div class="tasks" id="tasks">
+        <div class="tasks" id="tasks" ng-controller="TasksController">
             <h1>Your Tasks</h1>
-            <div class="task" ng-repeat="task in tasks" id="task-tpl" draggable="true">
-                <h4><a href="">{{task.title}}</a></h4>
-                <span class="remaining" prox="3">3 days</span>
-                <span class="description-short">
-                    {{task.description}}
-                </span>
-                <span class="points">{{task.points}}</span>
-                <span class="chain-length">{{task.chain}}</span>
-                <a href="#" class="actions">M</a>
-                <div class="attachments">
-                    <img src="" alt="" />
+            <div class="task-container">
+                <div class="task" ng-repeat="task in tasks" draggable="true">
+                    <h4><a href="">{{task.title}}</a></h4>
+                    <span class="remaining" ng-show="task.due_date != null" prox="{{days_remaining()}}">{{days_msg()}}</span>
+                    <span class="description-short">
+                        {{short_description()}}
+                    </span>
+                    <span class="points">{{task.points.total}}</span>
+                    <span class="chain-length">{{task.chain}}</span>
+                    <a href="#" class="actions">M</a>
+                    <div class="attachments">
+                        <img src="" alt="" />
+                    </div>
+                    <div class="motivation">{{task.motivation}}</div>
+                    <nav class="menu hidden">
+                        <a href="#">Edit</a>
+                        <a href="#">Change Due Date</a>
+                        <a href="#">Move to top of list</a>
+                        <a href="#">Change repeat days</a>
+                    </nav>
                 </div>
-                <div class="motivation">3</div>
+                <div class="task-details hidden">
+                    <div class="sections">
+                        <a href="#" class="details selected">D</a>
+                        <a href="#" class="points">P</a>
+                        <a href="#" class="motivation">M</a>
+                        <a href="#" class="attachments">A</a>
+                    </div>
+                    <div class="section details selected">
+                        <h4>Task Details</h4>
+                        <div class="group due-date">
+                            <label>Due Date:</label>
+                            <span>{{task.due_date}}</span>
+                        </div>
+                        <div class="group">
+                            <label>Date Created:</label>
+                            <span>{{task.created}}</span>
+                        </div>
+                        <div class="group">
+                            <label>Last Modified:</label>
+                            <span>{{task.modified}}</span>
+                        </div>
+                        <div class="description group">
+                            <label>Description:</label>
+                            <div>{{task.description}}</div>
+                        </div>
+                    </div>
+                    <div class="section points">
+                        <h4>Points</h4>
+                        <div class="group">
+                            <label>Base Points:</label>
+                            <span>{{task.points.base}}</span>
+                        </div>
+                        <div class="group">
+                            <label>Motivation Points:</label>
+                            <span>{{task.points.motivation}}</span>
+                        </div>
+                        <div class="group">
+                            <label>Chain Points:</label>
+                            <span>{{task.points.chain}}</span>
+                        </div>
+                        <div class="group">
+                            <label>Total Points:</label>
+                            <span>{{task.points.total}}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="task-actions invisible">
                 <div class="complete">
