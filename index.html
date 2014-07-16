@@ -32,8 +32,8 @@
     <div class="main group">
         <div class="tasks" id="tasks" ng-controller="TasksController">
             <h1>Your Tasks</h1>
-            <div class="task-container">
-                <div class="task" ng-repeat="task in tasks" draggable="true">
+            <div class="task-container" ng-repeat="task in tasks">
+                <div class="task" draggable="true">
                     <h4><a href="">{{task.title}}</a></h4>
                     <span class="remaining" ng-show="task.due_date != null" prox="{{days_remaining()}}">{{days_msg()}}</span>
                     <span class="description-short">
@@ -64,15 +64,15 @@
                         <h4>Task Details</h4>
                         <div class="group due-date">
                             <label>Due Date:</label>
-                            <span>{{task.due_date}}</span>
+                            <span>{{due_date()}}</span>
                         </div>
                         <div class="group">
                             <label>Date Created:</label>
-                            <span>{{task.created}}</span>
+                            <span>{{created()}}</span>
                         </div>
                         <div class="group">
                             <label>Last Modified:</label>
-                            <span>{{task.modified}}</span>
+                            <span>{{modified()}}</span>
                         </div>
                         <div class="description group">
                             <label>Description:</label>

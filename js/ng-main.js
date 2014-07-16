@@ -74,18 +74,30 @@ TasksController = function($scope) {
     if (remaining >= 10) {
       remaining = "future";
     }
+    if (remaining < 0) {
+      remaining = -1;
+    }
     return remaining;
   };
-  return {
-    _date_format: function(date) {
-      return [date.getFullYear(), this._pad(date.getMonth() + 1), this._pad(date.getDate())].join('/');
-    },
-    _pad: function(val) {
-      if (val < 10) {
-        return "0" + val;
-      } else {
-        return val;
-      }
+  $scope.due_date = function() {
+    if (this.task.due_date != null) {
+      return this.date(this.task.due_date);
+    }
+  };
+  $scope.created = function() {
+    return this.date(this.task.created);
+  };
+  $scope.modified = function() {
+    return this.date(this.task.modified);
+  };
+  $scope.date = function(date) {
+    return [date.getFullYear(), this.pad(date.getMonth() + 1), this.pad(date.getDate())].join('/');
+  };
+  return $scope.pad = function(val) {
+    if (val < 10) {
+      return "0" + val;
+    } else {
+      return val;
     }
   };
 };
