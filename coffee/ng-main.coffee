@@ -3,10 +3,25 @@ app = angular.module('app', ['ngRoute'])
 QuickCreate = ($scope) ->
     $scope.create = ->
         console.log "create new task"
+        @$parent.tasks = [] unless @$parent.tasks?
+        @$parent.tasks.push
+            title: @title
+            created: new Date()
+            modified: new Date()
+            description: ""
+            points:
+                total: 5
+                base: 5
+                motivation: 0
+                chain: 0
+            chain: 0
+            motivation: 0
+        @title = ""
 
     $scope.adv_create = ->
         console.log "adv create new task"
         this.$parent.adv_create = true
+        @title = ""
 
 
 CreateTask = ($scope) ->
@@ -25,7 +40,7 @@ CreateTask = ($scope) ->
                 base       : 5
                 motivation : 0
                 chain      : 0
-            chain       : 1
+            chain       : 0
             motivation  : 0
 
         this.$parent.adv_create = false

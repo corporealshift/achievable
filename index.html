@@ -34,7 +34,7 @@
             <h1>Your Tasks</h1>
             <div class="task-container" ng-repeat="task in tasks">
                 <div class="task" draggable="true">
-                    <h4><a href="">{{task.title}}</a></h4>
+                    <h4><a href="" ng-click="show_details=!show_details">{{task.title}}</a></h4>
                     <span class="remaining" ng-show="task.due_date != null" prox="{{days_remaining()}}">{{days_msg()}}</span>
                     <span class="description-short">
                         {{short_description()}}
@@ -53,7 +53,7 @@
                         <a href="#">Change repeat days</a>
                     </nav>
                 </div>
-                <div class="task-details hidden">
+                <div class="task-details" ng-show="show_details">
                     <div class="sections">
                         <a href="#" class="details selected">D</a>
                         <a href="#" class="points">P</a>

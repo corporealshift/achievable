@@ -5,11 +5,30 @@ app = angular.module('app', ['ngRoute']);
 
 QuickCreate = function($scope) {
   $scope.create = function() {
-    return console.log("create new task");
+    console.log("create new task");
+    if (this.$parent.tasks == null) {
+      this.$parent.tasks = [];
+    }
+    this.$parent.tasks.push({
+      title: this.title,
+      created: new Date(),
+      modified: new Date(),
+      description: "",
+      points: {
+        total: 5,
+        base: 5,
+        motivation: 0,
+        chain: 0
+      },
+      chain: 0,
+      motivation: 0
+    });
+    return this.title = "";
   };
   return $scope.adv_create = function() {
     console.log("adv create new task");
-    return this.$parent.adv_create = true;
+    this.$parent.adv_create = true;
+    return this.title = "";
   };
 };
 
@@ -33,7 +52,7 @@ CreateTask = function($scope) {
         motivation: 0,
         chain: 0
       },
-      chain: 1,
+      chain: 0,
       motivation: 0
     });
     return this.$parent.adv_create = false;
