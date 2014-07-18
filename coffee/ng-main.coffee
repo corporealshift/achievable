@@ -20,7 +20,7 @@ QuickCreate = ($scope) ->
 
     $scope.adv_create = ->
         console.log "adv create new task"
-        this.$parent.adv_create = true
+        @$parent.adv_create = true
         @title = ""
 
 
@@ -28,7 +28,6 @@ CreateTask = ($scope) ->
     $scope.add_task = ->
         @$parent.tasks    = [] unless @$parent.tasks?
         $scope.difficulty = 0  unless $scope.difficulty?
-
         @$parent.tasks.push
             title       : $scope.title
             due_date    : $scope.due_date
@@ -43,7 +42,9 @@ CreateTask = ($scope) ->
             chain       : 0
             motivation  : 0
 
-        this.$parent.adv_create = false
+        @$parent.adv_create = false
+        
+
 
 TasksController = ($scope) ->
 

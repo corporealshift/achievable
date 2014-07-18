@@ -160,7 +160,7 @@
     <div id="create-overlay" class="overlay" ng-controller="CreateTask" ng-show="adv_create">
         <div id="create" class="create">
             <h3>Create Task</h3>
-            <form ng-submit="add_task()">
+            <form ng-submit="add_task()" name="create-task">
                 <div>
                     <label>Title:</label>
                     <input placeholder="Task title" type="text" class="title" ng-model="title">
