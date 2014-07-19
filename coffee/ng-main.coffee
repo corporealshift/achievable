@@ -25,25 +25,30 @@ QuickCreate = ($scope) ->
 
 
 CreateTask = ($scope) ->
+    $scope.master =
+        description : ""
+        difficulty  : 0
+        created     : new Date()
+        modified    : new Date()
+        points      :
+            base       : 5
+            motivation : 0
+            chain      : 0
+        chain       : 0
+        motivation  : 0
+
+    $scope.reset = -> $scope.task = angular.copy $scope.master
+
     $scope.add_task = ->
         @$parent.tasks    = [] unless @$parent.tasks?
-        $scope.difficulty = 0  unless $scope.difficulty?
-        @$parent.tasks.push
-            title       : $scope.title
-            due_date    : $scope.due_date
-            created     : new Date()
-            modified    : new Date()
-            description : $scope.description || ""
-            points      :
-                total      : 5 + (2 * +$scope.difficulty)
-                base       : 5
-                motivation : 0
-                chain      : 0
-            chain       : 0
-            motivation  : 0
+        $scope.task.points.total = 5 + (2 * +$scope.task.difficulty)
+        @$parent.tasks.push $scope.task
 
         @$parent.adv_create = false
-        
+        $scope.reset()
+
+    $scope.reset()
+
 
 
 TasksController = ($scope) ->

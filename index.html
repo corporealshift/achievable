@@ -163,30 +163,30 @@
             <form ng-submit="add_task()" name="create-task">
                 <div>
                     <label>Title:</label>
-                    <input placeholder="Task title" type="text" class="title" ng-model="title">
+                    <input placeholder="Task title" type="text" class="title" ng-model="task.title">
                 </div>
                 <div>
                     <label>Due Date:</label>
-                    <input placeholder="Due Date" type="date" class="due-date" ng-model="due_date">
+                    <input placeholder="Due Date" type="date" class="due-date" ng-model="task.due_date">
                 </div>
                 <div>
                     <label>Description:</label>
-                    <textarea placeholder="Task Description" rows="8" cols="40" ng-model="description"></textarea>
+                    <textarea placeholder="Task Description" rows="8" cols="40" ng-model="task.description"></textarea>
                 </div>
                 <div>
                     <label>Difficulty:</label>
-                    <input type="number" name="difficulty" placeholder="1-10" min="1" max="10" step="1" ng-model="difficulty">
+                    <input type="number" name="difficulty" placeholder="1-10" min="1" max="10" step="1" ng-model="task.difficulty">
                 </div>
                 <div>
                     <label>Repeats:</label>
                     <label class="radio">
-                        <input type="radio" name="repeat" value="weekly" ng-model="repeat_frequency" placeholder="Weekly">Weekly
+                        <input type="radio" name="repeat" value="weekly" ng-model="task.repeat_frequency" placeholder="Weekly">Weekly
                     </label>
                     <label class="radio">
-                        <input type="radio" name="repeat" value="daily" ng-model="repeat_frequency" placeholder="Daily">Daily
+                        <input type="radio" name="repeat" value="daily" ng-model="task.repeat_frequency" placeholder="Daily">Daily
                     </label>
                     <label class="radio">
-                        <input type="radio" name="repeat" value="every_other" ng-model="repeat_frequency" placeholder="Every Other Day">Every Other Day
+                        <input type="radio" name="repeat" value="every_other" ng-model="task.repeat_frequency" placeholder="Every Other Day">Every Other Day
                     </label>
                 </div>
                 <input type="submit" value="Create Task">

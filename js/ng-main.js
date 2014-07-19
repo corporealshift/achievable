@@ -33,30 +33,32 @@ QuickCreate = function($scope) {
 };
 
 CreateTask = function($scope) {
-  return $scope.add_task = function() {
+  $scope.master = {
+    description: "",
+    difficulty: 0,
+    created: new Date(),
+    modified: new Date(),
+    points: {
+      base: 5,
+      motivation: 0,
+      chain: 0
+    },
+    chain: 0,
+    motivation: 0
+  };
+  $scope.reset = function() {
+    return $scope.task = angular.copy($scope.master);
+  };
+  $scope.add_task = function() {
     if (this.$parent.tasks == null) {
       this.$parent.tasks = [];
     }
-    if ($scope.difficulty == null) {
-      $scope.difficulty = 0;
-    }
-    this.$parent.tasks.push({
-      title: $scope.title,
-      due_date: $scope.due_date,
-      created: new Date(),
-      modified: new Date(),
-      description: $scope.description || "",
-      points: {
-        total: 5 + (2 * +$scope.difficulty),
-        base: 5,
-        motivation: 0,
-        chain: 0
-      },
-      chain: 0,
-      motivation: 0
-    });
-    return this.$parent.adv_create = false;
+    $scope.task.points.total = 5 + (2 * +$scope.task.difficulty);
+    this.$parent.tasks.push($scope.task);
+    this.$parent.adv_create = false;
+    return $scope.reset();
   };
+  return $scope.reset();
 };
 
 TasksController = function($scope) {
