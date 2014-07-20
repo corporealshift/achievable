@@ -34,6 +34,7 @@ CreateTask = ($scope) ->
             base       : 5
             motivation : 0
             chain      : 0
+            total      : 5
         chain       : 0
         motivation  : 0
 
@@ -48,8 +49,6 @@ CreateTask = ($scope) ->
         $scope.reset()
 
     $scope.reset()
-
-
 
 TasksController = ($scope) ->
 

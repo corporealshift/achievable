@@ -14,15 +14,15 @@
             <form id="quick-create" ng-submit="create()" ng-controller="QuickCreate" class="left" action="">
                 <input type="text" placeholder="Create a task..." ng-model="title" name="task-title">
                 <div class="demo options" ng-show="title.length">
-                    <a href="" ng-click="create()">Create Task:<span class="user-value">{{title}}</span></a>
-                    <a href="" ng-click="create()">Create and go to task:<span class="user-value">{{title}}</span></a>
-                    <a href="" ng-click="adv_create()">Create with options:<span class="user-value">{{title}}</span></a>
+                    <a ng-click="create()">Create Task:<span class="user-value">{{title}}</span></a>
+                    <a ng-click="create()">Create and go to task:<span class="user-value">{{title}}</span></a>
+                    <a ng-click="adv_create()">Create with options:<span class="user-value">{{title}}</span></a>
                 </div>
             </form>
             <nav class="configuration right">
-                <a href="" id="notifications">N</a>
-                <a href="" id="settings">S</a>
-                <a href="" id="profile">P</a>
+                <a id="notifications">N</a>
+                <a id="settings">S</a>
+                <a id="profile">P</a>
             </nav>
             <form id="search" class="right" action="">
                 <input type="text" placeholder="Search tasks, comments, or people" name="search-text">
@@ -34,23 +34,23 @@
             <h1>Your Tasks</h1>
             <div class="task-container" ng-repeat="task in tasks">
                 <div class="task" draggable="true">
-                    <h4><a href="" ng-click="show_details=!show_details">{{task.title}}</a></h4>
+                    <h4><a ng-click="show_details=!show_details">{{task.title}}</a></h4>
                     <span class="remaining" ng-show="task.due_date != null" prox="{{days_remaining()}}">{{days_msg()}}</span>
                     <span class="description-short">
                         {{short_description()}}
                     </span>
                     <span class="points">{{task.points.total}}</span>
                     <span class="chain-length">{{task.chain}}</span>
-                    <a href="#" class="actions">M</a>
+                    <a class="actions" ng-click="show_menu=true">M</a>
                     <div class="attachments">
                         <img src="" alt="" />
                     </div>
                     <div class="motivation">{{task.motivation}}</div>
-                    <nav class="menu hidden">
-                        <a href="#">Edit</a>
-                        <a href="#">Change Due Date</a>
-                        <a href="#">Move to top of list</a>
-                        <a href="#">Change repeat days</a>
+                    <nav class="menu" ng-show="show_menu">
+                        <a ng-click="show_menu=false">Edit</a>
+                        <a ng-click="show_menu=false">Change Due Date</a>
+                        <a ng-click="show_menu=false">Move to top of list</a>
+                        <a ng-click="show_menu=false">Change repeat days</a>
                     </nav>
                 </div>
                 <div class="task-details" ng-show="show_details">

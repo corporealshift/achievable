@@ -41,7 +41,8 @@ CreateTask = function($scope) {
     points: {
       base: 5,
       motivation: 0,
-      chain: 0
+      chain: 0,
+      total: 5
     },
     chain: 0,
     motivation: 0
