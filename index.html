@@ -54,13 +54,13 @@
                     </nav>
                 </div>
                 <div class="task-details" ng-show="show_details">
-                    <div class="sections">
-                        <a href="#" class="details selected">D</a>
-                        <a href="#" class="points">P</a>
-                        <a href="#" class="motivation">M</a>
-                        <a href="#" class="attachments">A</a>
+                    <div class="sections" ng-init="active_section='details'">
+                        <a ng-repeat="section in sections"
+                            ng-class="{'selected': $parent.active_section == section.name}"
+                            ng-click="$parent.active_section=section.name"
+                        >{{section.icon}}</a>
                     </div>
-                    <div class="section details selected">
+                    <div class="section details" ng-class="{'selected': active_section == 'details'}">
                         <h4>Task Details</h4>
                         <div class="group due-date">
                             <label>Due Date:</label>
@@ -79,7 +79,7 @@
                             <div>{{task.description}}</div>
                         </div>
                     </div>
-                    <div class="section points">
+                    <div class="section points" ng-class="{'selected': active_section=='points'}">
                         <h4>Points</h4>
                         <div class="group">
                             <label>Base Points:</label>

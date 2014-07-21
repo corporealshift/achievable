@@ -51,7 +51,13 @@ CreateTask = ($scope) ->
     $scope.reset()
 
 TasksController = ($scope) ->
-
+    $scope.sections = [
+        icon: 'D'
+        name: 'details'
+    ,
+        icon: 'P'
+        name: 'points'
+    ]
     $scope.short_description = -> if @task.description.length < 75 then @task.description else @task.description.substr(0, 75) + "..."
 
     $scope.days_msg = ->

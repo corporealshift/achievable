@@ -63,6 +63,15 @@ CreateTask = function($scope) {
 };
 
 TasksController = function($scope) {
+  $scope.sections = [
+    {
+      icon: 'D',
+      name: 'details'
+    }, {
+      icon: 'P',
+      name: 'points'
+    }
+  ];
   $scope.short_description = function() {
     if (this.task.description.length < 75) {
       return this.task.description;

@@ -74,6 +74,7 @@ input, textarea {
 a {
     text-decoration: none;
     color: $text_color;
+    cursor: pointer;
 
     &:hover {
         text-decoration: underline;
