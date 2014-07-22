@@ -28,6 +28,7 @@ QuickCreate = function($scope) {
   return $scope.adv_create = function() {
     console.log("adv create new task");
     this.$parent.adv_create = true;
+    this.$parent.title = this.title;
     return this.title = "";
   };
 };
@@ -59,6 +60,11 @@ CreateTask = function($scope) {
     this.$parent.adv_create = false;
     return $scope.reset();
   };
+  $scope.$watch('adv_create', function(val) {
+    if (val) {
+      return $scope.task.title = $scope.$parent.title;
+    }
+  });
   return $scope.reset();
 };
 

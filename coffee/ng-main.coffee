@@ -21,6 +21,7 @@ QuickCreate = ($scope) ->
     $scope.adv_create = ->
         console.log "adv create new task"
         @$parent.adv_create = true
+        @$parent.title = @title
         @title = ""
 
 
@@ -47,6 +48,9 @@ CreateTask = ($scope) ->
 
         @$parent.adv_create = false
         $scope.reset()
+
+    $scope.$watch 'adv_create', (val) ->
+        $scope.task.title = $scope.$parent.title if val
 
     $scope.reset()
 

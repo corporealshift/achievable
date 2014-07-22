@@ -1,4 +1,12 @@
 More notes complete!
+
+## Run:
+```
+python -m SimpleHTTPServer 8000 &
+compass watch . &
+./coffee/csc
+```
+
 ## Data Structures:
 Everything has an associated pkid even if it isn't listed
 
