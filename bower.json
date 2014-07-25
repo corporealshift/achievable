@@ -6,10 +6,8 @@
     "Kyle Diedrick <corporealshift@gmail.com>"
   ],
   "dependencies": {
-    "requirejs" : "git://github.com/jrburke/requirejs-bower.git",
     "jquery"    : "git://github.com/jquery/jquery.git",
-    "backbone"  : "git://github.com/jashkenas/backbone.git",
-    "handlebars": "git://github.com/SlexAxton/require-handlebars-plugin.git",
+    "angular"   : "#v1.2.5",	
     "nvd3"      : "#v1.1.15-beta"  
   },
   "license": "MIT",
